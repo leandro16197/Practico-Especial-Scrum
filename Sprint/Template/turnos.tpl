@@ -15,7 +15,7 @@
     <h1 class="titulo">{$titulo}</h1>
     <div class="table-admin">
         <table class="table">
-  <thead class="thead-dark">
+  <thead class="table-success">
     <tr>
       <th scope="col">Medico</th>
       <th scope="col">Nombre</th>
@@ -25,22 +25,22 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">IMG</th>
-      <td>pepe</td>
-      <td>psicologo</td>
-      <td>16:15</td>
+      <th class="table-success" scope="row">IMG</th>
+      <td class="table-success">pepe</td>
+      <td class="table-success">psicologo</td>
+      <td class="table-success">16:15</td>
     </tr>
     <tr>
-      <th scope="row">IMG</th>
-      <td>pepe</td>
-      <td>psicologo</td>
-      <td>16:15</td>
+      <th class="table-success" scope="row">IMG</th>
+      <td class="table-success">pepe</td>
+      <td class="table-success">psicologo</td>
+      <td class="table-success">16:15</td>
     </tr>
     <tr>
-      <th scope="row">IMG</th>
-     <td>pepe</td>
-      <td>psicologo</td>
-      <td>16:15</td>
+      <th class="table-success" scope="row">IMG</th>
+     <td class="table-success">pepe</td>
+      <td class="table-success" >psicologo</td>
+      <td class="table-success">16:15</td>
     </tr>
   </tbody>
 </table>
