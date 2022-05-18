@@ -15,5 +15,5 @@ class TurnosController{
         $Turno=$this->model->getTurno();
         $this->view->showTurnos($Turno);
     }
-
+    
 }

@@ -7,6 +7,7 @@ class TurnosView{
 
     function showTurnos($Turnos){
         $smarty=new Smarty();
+        $smarty->assign('titulo','Turno Disponibles');
         $smarty->assign('lista',$Turnos);
         $smarty->display('Template/turnos.tpl');
     }
