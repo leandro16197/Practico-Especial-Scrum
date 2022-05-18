@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-05-18 22:33:53
+/* Smarty version 3.1.39, created on 2022-05-18 23:16:59
   from 'C:\xampp\htdocs\TPEMetodologiaGrupo3\Sprint\Template\turnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_628558319e4777_11884080',
+  'unifunc' => 'content_6285624bc79be0_97188483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6499313c5286f3dbbf232cb76ede8ad1958d5f25' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEMetodologiaGrupo3\\Sprint\\Template\\turnos.tpl',
-      1 => 1652906032,
+      1 => 1652908605,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_628558319e4777_11884080 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6285624bc79be0_97188483 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,20 +42,29 @@ function content_628558319e4777_11884080 (Smarty_Internal_Template $_smarty_tpl)
         <link type="text/css" rel="stylesheet" href="Publico\css\style.css">
     </head>
     <body>
+    <header>  
+    <nav  class="navbar navbar-light" style="background-color:rgba(51, 224, 167, 0.89);">
+    <form class="form-inline">
+    <button class="btn btn-outline-success " type="button">Sacar Turno</button>
+    <button class="btn btn-outline-success " type="button">Ver Turno</button>
+    <button class="btn btn-outline-success " type="button">Cancelar Turno</button>
+    </form>
+    </nav>
+    </header>
     <h1 class="titulo"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
     <div class="table-admin">
         <table class="table">
-  <thead class="table-success">
-    <tr>
-    <th scope="col">Medico</th>
+        <thead class="table-success">
+         <tr>
+        <th scope="col">Medico</th>
     <th scope="col">Turnos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th  scope="row">IMG</th>
-      <td class="table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
+      <td class="distancia table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
     </tr>
     <tr>
         <th scope="row">IMG</th>

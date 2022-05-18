@@ -12,19 +12,28 @@
         <link type="text/css" rel="stylesheet" href="Publico\css\style.css">
     </head>
     <body>
+    <header>  
+    <nav  class="navbar navbar-light" style="background-color:rgba(51, 224, 167, 0.89);">
+    <form class="form-inline">
+    <button class="btn btn-outline-success " type="button">Sacar Turno</button>
+    <button class="btn btn-outline-success " type="button">Ver Turno</button>
+    <button class="btn btn-outline-success " type="button">Cancelar Turno</button>
+    </form>
+    </nav>
+    </header>
     <h1 class="titulo">{$titulo}</h1>
     <div class="table-admin">
         <table class="table">
-  <thead class="table-success">
-    <tr>
-    <th scope="col">Medico</th>
+        <thead class="table-success">
+         <tr>
+        <th scope="col">Medico</th>
     <th scope="col">Turnos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th  scope="row">IMG</th>
-      <td class="table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
+      <td class="distancia table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
     </tr>
     <tr>
         <th scope="row">IMG</th>

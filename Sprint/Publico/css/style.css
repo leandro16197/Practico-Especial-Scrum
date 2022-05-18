@@ -2,7 +2,7 @@
 
 /*Titulo*/
 body{
-  background: #E5E5E5;
+  background: #e9e7e7;
 }
 .titulo{
   font-size: 300%;
@@ -16,4 +16,17 @@ body{
   margin-bottom: 10%;
   width: 90%;
   color:rgba(0, 177, 118, 0.89);
+}
+.distancia{
+  margin-top: 100px;
+}
+/*nav-var*/
+.btn{
+width: 235.2px;
+height: 54px;
+left: 300.32px;
+top: 71px;
+margin: 10px;
+margin-left: 100px;
+border-radius: 15px;
 }
