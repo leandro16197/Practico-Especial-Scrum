@@ -1,10 +1,19 @@
 /* Ellipse 1 */
 
 /*Titulo*/
-
+body{
+  background: #E5E5E5;
+}
 .titulo{
   font-size: 300%;
   color: rgba(0, 177, 118, 0.89);
   margin: 2.5% 20%;
   margin-left: 30%;
+}
+/*Tabla*/
+.table-admin {
+  margin: 5% auto;
+  margin-bottom: 10%;
+  width: 90%;
+  color:rgba(0, 177, 118, 0.89);
 }
