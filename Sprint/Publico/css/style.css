@@ -18,6 +18,13 @@ body{
   margin: 2.5% 20%;
   margin-left: 30%;
 }
+/*Tabla*/
+.table-admin {
+  margin: 5% auto;
+  margin-bottom: 10%;
+  width: 90%;
+  color:rgba(0, 177, 118, 0.89);
+}
 
 button, .inputHora{
 margin-left: 190px;
