@@ -12,4 +12,12 @@ class TurnosView{
         $smarty->display('Template/turnos.tpl');
     }
 
+<<<<<<< HEAD
+=======
+    function createTurno(){
+        $smarty=new Smarty();
+        $smarty->display('Template/CrearTurno.tpl');
+    }
+
+>>>>>>> TM-29
 }

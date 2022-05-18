@@ -1,8 +1,13 @@
 /* Ellipse 1 */
 
 /*Titulo*/
+<<<<<<< HEAD
 body{
   background: #e9e7e7;
+=======
+*{
+  margin: 0;
+>>>>>>> TM-29
 }
 .titulo{
   font-size: 300%;
@@ -10,6 +15,7 @@ body{
   margin: 2.5% 20%;
   margin-left: 30%;
 }
+<<<<<<< HEAD
 /*Tabla*/
 .table-admin {
   margin: 5% auto;
@@ -29,4 +35,94 @@ top: 71px;
 margin: 10px;
 margin-left: 100px;
 border-radius: 15px;
+=======
+
+button, .inputHora{
+margin-left: 190px;
+cursor: pointer;
+border-radius: 25px;
+border: none;
+width: 180px;
+color: #128172;
+left: 267.55px;
+margin-top: 49px;
+padding: 15px;
+}
+
+label{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.medicostyle{
+  margin-left: 70px;
+}
+section{
+  justify-content:  center;
+  margin-top: 100px;
+  display: flex;
+}
+img{
+  margin-left: 70px;
+  margin-top: 10px;
+}
+.imgMedico{
+  justify-content: left;
+  margin-top: 0;
+  margin-left: 0;
+  height: 80px;
+  display: flex;
+}
+
+.turnosDisponibles{
+  background-color: #C5DFDC;
+  height: 40px;
+  margin-top: 70px;
+  text-align: center;
+  width: 100%;
+  color: #1C6F64;
+}
+.listHoras{
+  display: flex;
+}
+
+.confirmButton{
+  text-align: center;
+}
+
+.button{
+  margin-left: 0;
+}
+
+.divHoras{
+  margin-left: 90px;
+  border: 1px solid #00BFA6;
+  color: #046F61;
+  padding: 10px;
+}
+
+input{
+  border: none;
+text-decoration: underline;
+}
+.interiorDiv{
+  display: flex;
+  align-items: center;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+a, li{
+  list-style-type: none;
+}
+nav{
+margin: 0;
+height: 166px;
+left: 0px;
+top: 0px;
+background: #00BFA6;
+display: flex;
+
+>>>>>>> TM-29
 }

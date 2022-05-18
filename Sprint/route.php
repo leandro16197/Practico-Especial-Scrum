@@ -15,8 +15,13 @@ switch($params[0]){
     case 'home':
         $TurnosController->getHome();
         break;
+<<<<<<< HEAD
     case'verTurno':
         $TurnosController->getHome();
+=======
+    case 'crearTurno':
+        $TurnosController->createTurno();
+>>>>>>> TM-29
         break;
 }
 
