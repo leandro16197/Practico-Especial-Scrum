@@ -15,6 +15,9 @@ switch($params[0]){
     case 'home':
         $TurnosController->getHome();
         break;
+    case'verTurno':
+        $TurnosController->getHome();
+        break;
 }
 
 ?>
