@@ -17,30 +17,22 @@
         <table class="table">
   <thead class="table-success">
     <tr>
-      <th scope="col">Medico</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Especialidad</th>
-      <th scope="col">Horario</th>
+    <th scope="col">Medico</th>
+    <th scope="col">Turnos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-      <td class="table-success">pepe</td>
-      <td class="table-success">psicologo</td>
-      <td class="table-success">16:15</td>
+      <th  scope="row">IMG</th>
+      <td class="table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
     </tr>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-      <td class="table-success">pepe</td>
-      <td class="table-success">psicologo</td>
-      <td class="table-success">16:15</td>
+        <th scope="row">IMG</th>
+        <td class="table-success"><p>pepe</p><p>psicologo</p><p>16:15</p></td>
     </tr>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-     <td class="table-success">pepe</td>
-      <td class="table-success" >psicologo</td>
-      <td class="table-success">16:15</td>
+        <th  scope="row">IMG</th>
+        <td class="table-success"><p>pepe</p><p>psicologo</p><p>16:15</p></td>
     </tr>
   </tbody>
 </table>

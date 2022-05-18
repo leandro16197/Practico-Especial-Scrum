@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-05-18 22:28:29
+/* Smarty version 3.1.39, created on 2022-05-18 22:33:53
   from 'C:\xampp\htdocs\TPEMetodologiaGrupo3\Sprint\Template\turnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_628556eddc4751_52211199',
+  'unifunc' => 'content_628558319e4777_11884080',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6499313c5286f3dbbf232cb76ede8ad1958d5f25' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEMetodologiaGrupo3\\Sprint\\Template\\turnos.tpl',
-      1 => 1652905708,
+      1 => 1652906032,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_628556eddc4751_52211199 (Smarty_Internal_Template $_smarty_tpl) {
+function content_628558319e4777_11884080 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,30 +48,22 @@ function content_628556eddc4751_52211199 (Smarty_Internal_Template $_smarty_tpl)
         <table class="table">
   <thead class="table-success">
     <tr>
-      <th scope="col">Medico</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Especialidad</th>
-      <th scope="col">Horario</th>
+    <th scope="col">Medico</th>
+    <th scope="col">Turnos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-      <td class="table-success">pepe</td>
-      <td class="table-success">psicologo</td>
-      <td class="table-success">16:15</td>
+      <th  scope="row">IMG</th>
+      <td class="table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
     </tr>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-      <td class="table-success">pepe</td>
-      <td class="table-success">psicologo</td>
-      <td class="table-success">16:15</td>
+        <th scope="row">IMG</th>
+        <td class="table-success"><p>pepe</p><p>psicologo</p><p>16:15</p></td>
     </tr>
     <tr>
-      <th class="table-success" scope="row">IMG</th>
-     <td class="table-success">pepe</td>
-      <td class="table-success" >psicologo</td>
-      <td class="table-success">16:15</td>
+        <th  scope="row">IMG</th>
+        <td class="table-success"><p>pepe</p><p>psicologo</p><p>16:15</p></td>
     </tr>
   </tbody>
 </table>
