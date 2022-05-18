@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-05-18 23:16:59
+/* Smarty version 3.1.39, created on 2022-05-18 23:19:22
   from 'C:\xampp\htdocs\TPEMetodologiaGrupo3\Sprint\Template\turnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6285624bc79be0_97188483',
+  'unifunc' => 'content_628562da8577b1_50391224',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6499313c5286f3dbbf232cb76ede8ad1958d5f25' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEMetodologiaGrupo3\\Sprint\\Template\\turnos.tpl',
-      1 => 1652908605,
+      1 => 1652908761,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6285624bc79be0_97188483 (Smarty_Internal_Template $_smarty_tpl) {
+function content_628562da8577b1_50391224 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -64,7 +64,7 @@ function content_6285624bc79be0_97188483 (Smarty_Internal_Template $_smarty_tpl)
   <tbody>
     <tr>
       <th  scope="row">IMG</th>
-      <td class="distancia table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
+      <td class="table-success"><p>pepe</p> <p>psicologo</p> <p>16:15</p></td>
     </tr>
     <tr>
         <th scope="row">IMG</th>
