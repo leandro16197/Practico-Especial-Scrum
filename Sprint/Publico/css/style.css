@@ -1,41 +1,23 @@
 /* Ellipse 1 */
 
 /*Titulo*/
-<<<<<<< HEAD
 body{
   background: #e9e7e7;
-=======
+}
 *{
   margin: 0;
->>>>>>> TM-29
 }
+
+.hiden{
+  display: none;
+}
+
 .titulo{
   font-size: 300%;
   color: rgba(0, 177, 118, 0.89);
   margin: 2.5% 20%;
   margin-left: 30%;
 }
-<<<<<<< HEAD
-/*Tabla*/
-.table-admin {
-  margin: 5% auto;
-  margin-bottom: 10%;
-  width: 90%;
-  color:rgba(0, 177, 118, 0.89);
-}
-.distancia{
-  margin-top: 100px;
-}
-/*nav-var*/
-.btn{
-width: 235.2px;
-height: 54px;
-left: 300.32px;
-top: 71px;
-margin: 10px;
-margin-left: 100px;
-border-radius: 15px;
-=======
 
 button, .inputHora{
 margin-left: 190px;
@@ -124,5 +106,4 @@ top: 0px;
 background: #00BFA6;
 display: flex;
 
->>>>>>> TM-29
 }

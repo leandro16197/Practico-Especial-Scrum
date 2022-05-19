@@ -11,14 +11,16 @@ class TurnModel
     {
         $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE t.dni_paciente = ? GROUP BY id_turno";
         $query = $this->db->prepare($queryString);
-        $query->execute(array("11223344"));
+        $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
         return $turns;
     }
 
     function confirmTurn($id){
-        $queryString = "UPDATE Turno SET confirmado = ? WHERE id_turno = $id";
+        $queryString = "UPDATE turno SET confirmado = ? WHERE id_turno = ?";
         $query = $this->db->prepare($queryString);
-        $query->execute(array('0'));
+        $query->execute(array(1,$id));
     }
+
+    
 }

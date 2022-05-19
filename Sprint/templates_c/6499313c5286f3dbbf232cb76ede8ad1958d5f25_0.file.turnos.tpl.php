@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-05-19 00:13:59
+/* Smarty version 3.1.39, created on 2022-05-19 20:51:17
   from 'C:\xampp\htdocs\TPEMetodologiaGrupo3\Sprint\Template\turnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_62856fa7634539_57976709',
+  'unifunc' => 'content_628691a50e3c83_62048473',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6499313c5286f3dbbf232cb76ede8ad1958d5f25' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEMetodologiaGrupo3\\Sprint\\Template\\turnos.tpl',
-      1 => 1652912037,
+      1 => 1652986274,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62856fa7634539_57976709 (Smarty_Internal_Template $_smarty_tpl) {
+function content_628691a50e3c83_62048473 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -70,10 +70,22 @@ $_smarty_tpl->tpl_vars['turno']->do_else = false;
 ?>
     <tr>
       <th  scope="row">IMG</th>
-      <td class="distancia table-success"><p><?php echo $_smarty_tpl->tpl_vars['turno']->value->id_doctor;?>
-</p> <p><?php echo $_smarty_tpl->tpl_vars['turno']->value->especialidad;?>
-</p> <p><?php echo $_smarty_tpl->tpl_vars['turno']->value->fecha;?>
-</p></td>
+      <td class="distancia table-success">
+        <p><?php echo $_smarty_tpl->tpl_vars['turno']->value->Nombre;?>
+</p>
+        <p><?php echo $_smarty_tpl->tpl_vars['turno']->value->Especialidad;?>
+</p>
+        <p id="turn_date"><?php echo $_smarty_tpl->tpl_vars['turno']->value->fecha;?>
+</p>
+        <p class="hiden" id="turn_dni_paciente"><?php echo $_smarty_tpl->tpl_vars['turno']->value->dni_paciente;?>
+</p>
+        <p class="hiden" id="turn_id_doctor"><?php echo $_smarty_tpl->tpl_vars['turno']->value->id_doctor;?>
+</p>
+      </td>
+      <?php if ($_smarty_tpl->tpl_vars['turno']->value->confirmado == 0) {?>
+        <td class="distancia table-success"><button class="btn_confirm" type="button" id="<?php echo $_smarty_tpl->tpl_vars['turno']->value->id_turno;?>
+">confirmar</button></td>
+      <?php }?>
     </tr>
     <?php
 }
@@ -84,6 +96,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 <footer>
 
 </footer>
+<?php echo '<script'; ?>
+ src="js/app_turn.js"><?php echo '</script'; ?>
+>
 </body>
     
 </html><?php }

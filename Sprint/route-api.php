@@ -1,5 +1,5 @@
 <?php
-require_once 'libs/Router.php';
+require_once 'libs/Router/Router.php';
 require_once 'api/apiTurnController.php';
 
 // CONSTANTES PARA RUTEO
@@ -17,8 +17,8 @@ $router->addRoute(
 );
 
 $router->addRoute(
-    'turnos/:ID_TURNO',
-    'PUT',
+    'confirmarTurno/:ID_TURNO',
+    'POST',
     'ApiTurnController',
     'confirmTurn'
 );
