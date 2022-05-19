@@ -32,60 +32,14 @@ async function GetTurns(id){
 }
 
 async function ConfirmTurn(id){
-    console.log(id);
-
-    const turn = {
-        id_turno: id,
-        dni_paciente: parseInt(document.querySelector('#turn_dni_paciente').value),
-        id_doctor: parseInt(document.querySelector('#turn_id_doctor').value),
-        fecha: document.querySelector('#turn_date').value,
-        confirmado: 1,
-    }
-
     try {
         await fetch('api/confirmarTurno/'+id, {
           "method": 'POST',
           "headers": { "Content-Type": "application/json"},
-          "body": JSON.stringify(turn),
         });
-        console.log("hecho")
+        GetTurns(id_paciente);
       }
       catch (t) {
         console.log(t);
       }
-
-    /*fetch('api/confirmarTurno/'+id, {
-        method: 'PUT',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(turn)
-    })
-    .then(response => response.json())
-    .then(
-        console.log("hecho")
-    )
-    .catch(error => console.log(error));*/
 }
-
-/*async function editarDato(pedido, id) {
-    let data = {
-      "thing": {
-        "producto": pedido.producto,
-        "descripcion": pedido.descripcion,
-        "cantidad": pedido.cantidad,
-        "precio": pedido.precio,
-      }
-    };
-    try {
-      await fetch(url + "/" + id, {
-        "method": "PUT",
-        "headers": {
-        "Content-Type": "application/json"
-        },
-        "body": JSON.stringify(data),
-      });
-      traerDatos();
-    }
-    catch (t) {
-      console.log(t);
-    }
-  }*/

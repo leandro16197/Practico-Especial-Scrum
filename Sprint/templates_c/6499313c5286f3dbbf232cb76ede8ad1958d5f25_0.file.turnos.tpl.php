@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-05-19 20:51:17
+/* Smarty version 3.1.39, created on 2022-05-19 22:59:02
   from 'C:\xampp\htdocs\TPEMetodologiaGrupo3\Sprint\Template\turnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_628691a50e3c83_62048473',
+  'unifunc' => 'content_6286af963f3c65_40182984',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6499313c5286f3dbbf232cb76ede8ad1958d5f25' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEMetodologiaGrupo3\\Sprint\\Template\\turnos.tpl',
-      1 => 1652986274,
+      1 => 1652993939,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_628691a50e3c83_62048473 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6286af963f3c65_40182984 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,10 +76,6 @@ $_smarty_tpl->tpl_vars['turno']->do_else = false;
         <p><?php echo $_smarty_tpl->tpl_vars['turno']->value->Especialidad;?>
 </p>
         <p id="turn_date"><?php echo $_smarty_tpl->tpl_vars['turno']->value->fecha;?>
-</p>
-        <p class="hiden" id="turn_dni_paciente"><?php echo $_smarty_tpl->tpl_vars['turno']->value->dni_paciente;?>
-</p>
-        <p class="hiden" id="turn_id_doctor"><?php echo $_smarty_tpl->tpl_vars['turno']->value->id_doctor;?>
 </p>
       </td>
       <?php if ($_smarty_tpl->tpl_vars['turno']->value->confirmado == 0) {?>

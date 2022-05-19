@@ -38,8 +38,6 @@
         <p>{$turno->Nombre}</p>
         <p>{$turno->Especialidad}</p>
         <p id="turn_date">{$turno->fecha}</p>
-        <p class="hiden" id="turn_dni_paciente">{$turno->dni_paciente}</p>
-        <p class="hiden" id="turn_id_doctor">{$turno->id_doctor}</p>
       </td>
       {if $turno->confirmado == 0}
         <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
