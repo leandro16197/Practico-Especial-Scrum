@@ -16,8 +16,6 @@ $router->addRoute(
     'getTurnsByPatientId'
 );
 
-
-
 // rutea
 $resource = $_GET['resource'];
 $method = $_SERVER['REQUEST_METHOD'];
