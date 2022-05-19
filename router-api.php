@@ -16,6 +16,13 @@ $router->addRoute(
     'getTurnsByPatientId'
 );
 
+$router->addRoute(
+    'turnos/:ID_TURNO',
+    'PUT',
+    'ApiTurnController',
+    'confirmTurn'
+);
+
 // rutea
 $resource = $_GET['resource'];
 $method = $_SERVER['REQUEST_METHOD'];

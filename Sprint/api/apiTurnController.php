@@ -21,5 +21,11 @@ class ApiTurnController
         $turns = $this->model->getTurnsByPatientId($id_paciente);
         $this->view->response($turns, 200);
     }
+
+    public function confirmTurn($params = null){
+        $id_turno = $params[':ID_TURNO'];
+        $turns = $this->model->confirmTurn($id_turno);
+        $this->view->response($turns, 200);
+    }
     
 }
