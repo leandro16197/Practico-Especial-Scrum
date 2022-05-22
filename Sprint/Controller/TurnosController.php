@@ -17,17 +17,20 @@ class TurnosController
   function getHome()
   {
     $Turno = $this->model->getTurnsByPatientId(11223344);
-    $this->view->showTurnos($Turno);
+    $Medicos = $this->model->getMedicalsByPatientId(11223344);
+    $this->view->showTurnos($Turno, $Medicos);
   }
 
-  function getTurnsOfMedical($idMedical)
+  function getTurnsOfMedical()
   {
+    $idMedical = $_POST['medico'];
     if (!isset($idMedical) || empty($idMedical)) {
       $this->view->renderError("Error! medico no especificado");
       return;
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
-    $this->view->showTurnosByMedico($Turno);
+    $Medico = $this->model->getMedicalById($idMedical);
+    $this->view->showTurnosByMedico($Turno, $Medico);
   }
 
   function createTurno()

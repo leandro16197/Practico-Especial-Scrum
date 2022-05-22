@@ -1,9 +1,9 @@
 {include file="Template/header.tpl"}
     <h1 class="titulo">{$titulo}</h1>
-  {foreach from=$lista item=turno}
-    <h2>Medico: {$turno->Nombre}</h2>
-    <h3>Especialidad: {$turno->Especialidad}</h3>
-    <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
+  {foreach from=$medicos item=medico}
+    <h2>Medico: {$medico->Nombre}</h2>
+    <h3>Especialidad: {$medico->Especialidad}</h3>
+    <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
   {/foreach}
     <div class="table-admin">
       <table class="table">

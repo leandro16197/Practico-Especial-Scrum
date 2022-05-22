@@ -18,7 +18,7 @@ switch ($params[0]) {
     case 'verTurno':
         $TurnosController->getHome();
     case 'verTurnosMedico':
-        $TurnosController->getTurnsOfMedical($params[1]);
+        $TurnosController->getTurnsOfMedical();
     case 'crearTurno':
         $TurnosController->createTurno();
         break;
