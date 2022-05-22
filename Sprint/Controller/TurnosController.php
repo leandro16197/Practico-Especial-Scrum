@@ -20,9 +20,13 @@ class TurnosController
     $this->view->showTurnos($Turno);
   }
 
-  function getTurnsOfMedical($id)
+  function getTurnsOfMedical($idMedical)
   {
-    $Turno = $this->model->getTurnsByMedicalId($id);
+    if (!isset($idMedical) || empty($idMedical)) {
+      $this->view->renderError("Error! medico no especificado");
+      return;
+    }
+    $Turno = $this->model->getTurnsByMedicalId($idMedical);
     $this->view->showTurnosByMedico($Turno);
   }
 
