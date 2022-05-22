@@ -26,12 +26,6 @@ class TurnosView
         $smarty->display('Template/turnosByMedico.tpl');
     }
 
-    function createTurno()
-    {
-        $smarty = new Smarty();
-        $smarty->display('Template/CrearTurno.tpl');
-    }
-
     function renderError($error)
     {
         $smarty = new Smarty();
