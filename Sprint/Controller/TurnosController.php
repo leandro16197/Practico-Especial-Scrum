@@ -1,5 +1,4 @@
 <?php
-require_once('./Helper/AuthHelper.php');
 require_once('./Model/TurnModel.php');
 require_once('./View/TurnosView.php');
 
