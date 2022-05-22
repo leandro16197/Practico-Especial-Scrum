@@ -34,9 +34,16 @@
   <tbody>
   {foreach from=$lista item=turno}
     <tr>
-      <th  scope="row">IMG</th>
-
-      <td class="table-success">
+    {if $turno->Imagen != null}
+      <td>  
+      <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
+      </td>
+    {else}
+      <td>
+      <img src="publico/img/user_image.png" alt="Imagen no disponible" class="imagen-tabla">
+      </td>
+    {/if}
+    <td class="table-success">
         <p>{$turno->Nombre}</p>
         <p>{$turno->Especialidad}</p>
         <p id="turn_date">{$turno->fecha}</p>
