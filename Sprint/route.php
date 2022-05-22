@@ -1,28 +1,28 @@
 <?php
 require_once './Controller/TurnosController.php';
-define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/');
 
 
-if(!empty($_GET["action"])){
+if (!empty($_GET["action"])) {
     $action = $_GET["action"];
-}else{
-    $action='home';
+} else {
+    $action = 'home';
 }
-$TurnosController=new TurnosController();
+$TurnosController = new TurnosController();
 
-$params=explode('/',$action);
-switch($params[0]){
+$params = explode('/', $action);
+switch ($params[0]) {
     case 'home':
         $TurnosController->getHome();
         break;
-    case'verTurno':
+    case 'verTurno':
         $TurnosController->getHome();
+    case 'verTurnosMedico':
+        $TurnosController->getTurnsOfMedical($params[1]);
     case 'crearTurno':
         $TurnosController->createTurno();
         break;
-    default :
+    default:
         $TurnosController->getHome();
         break;
 }
-
-?>

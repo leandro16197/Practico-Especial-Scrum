@@ -22,10 +22,17 @@ class ApiTurnController
         $this->view->response($turns, 200);
     }
 
-    public function confirmTurn($params = null){
+    public function  getTurnsByMedicalId($params = null)
+    {
+        $id_medico = $params[':ID_MEDICO'];
+        $turns = $this->model->getTurnsByMedicalId($id_medico);
+        $this->view->response($turns, 200);
+    }
+
+    public function confirmTurn($params = null)
+    {
         $id_turno = $params[':ID_TURNO'];
         $turns = $this->model->confirmTurn($id_turno);
         $this->view->response($turns, 200);
     }
-    
 }
