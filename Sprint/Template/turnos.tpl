@@ -35,24 +35,15 @@
   {foreach from=$lista item=turno}
     <tr>
       <th  scope="row">IMG</th>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-      <td class="distancia table-success"><p>{$turno->id_doctor}</p> <p>{$turno->especialidad}</p> <p>{$turno->fecha}</p></td>
-=======
->>>>>>> merge con master
-      <td class="distancia table-success">
+
+      <td class="table-success">
         <p>{$turno->Nombre}</p>
         <p>{$turno->Especialidad}</p>
         <p id="turn_date">{$turno->fecha}</p>
+         {if $turno->confirmado == 0}
+        <label class="table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></label>
+        {/if}
       </td>
-      {if $turno->confirmado == 0}
-        <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
-      {/if}
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> merge con master
     </tr>
     {/foreach}
   </tbody>
@@ -61,14 +52,7 @@
 <footer>
 
 </footer>
-<<<<<<< HEAD
 <script src="js/app_turn.js"></script>
-=======
-<<<<<<< HEAD
-=======
-<script src="js/app_turn.js"></script>
->>>>>>> master
->>>>>>> merge con master
 </body>
     
 </html>
