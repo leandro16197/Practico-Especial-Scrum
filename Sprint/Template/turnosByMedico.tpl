@@ -25,10 +25,12 @@
     <tr>
       <td class="distancia table-success">
         <p id="turn_date">{$turno->fecha}</p>
-      </td>
       {if $turno->confirmado == 0}
         <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
+      {else}
+        <label class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></label>
       {/if}
+      </td>
     </tr>
     {/foreach}
   </tbody>
