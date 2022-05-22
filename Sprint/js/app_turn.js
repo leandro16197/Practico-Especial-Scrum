@@ -1,4 +1,5 @@
 "use strict";
+document.querySelector(".btn_print").addEventListener('click', printInfo);
 
 let id_paciente = 11223344;
 
@@ -14,8 +15,23 @@ document.addEventListener("DOMContentLoaded", function(){
                 ConfirmTurn(btn.id);
             });
         });
+        
     }catch(error){}
+    try{
+
+      let btn_print = document.querySelectorAll(".btn_print");
+
+      btn_print.forEach(btn => {
+          btn.addEventListener('click', function(e){
+              e.preventDefault();
+              printInfo(btn.id);
+          });
+      });
+      
+  }catch(error){}
 });
+
+
 
 
 
@@ -43,3 +59,20 @@ async function ConfirmTurn(id){
         console.log(t);
       }
 }
+
+
+
+async function printInfo(trname){
+    let tr = document.getElementById(trname).innerHTML;
+
+    let original = document.body.innerHTML;
+  console.log(trname);
+   
+
+    document.body.innerHTML = tr
+    
+    window.print();
+
+   document.body.innerHTML = original;
+  }
+

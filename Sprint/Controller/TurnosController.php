@@ -17,8 +17,6 @@ class TurnosController{
         $this->view->showTurnos($Turno);
     }
 
-
-
     function createTurno(){
       $this->view->createTurno();
     }
