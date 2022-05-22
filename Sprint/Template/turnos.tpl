@@ -12,7 +12,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="Publico\css\style.css">
     </head>
-    <body>
+    <body id="Body">
     <header>  
     <nav  class="navbar navbar-light" style="background-color:rgba(51, 224, 167, 0.89);">
     <form class="form-inline">
@@ -33,7 +33,7 @@
   </thead>
   <tbody>
   {foreach from=$lista item=turno}
-    <tr>
+    <tr id="{$turno->id_turno}">
     {if $turno->Imagen != null}
       <td>  
       <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
@@ -49,6 +49,8 @@
         <p id="turn_date">{$turno->fecha}</p>
          {if $turno->confirmado == 0}
         <label class="table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></label>
+        {else}
+        <label class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></label>
         {/if}
       </td>
     </tr>
