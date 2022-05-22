@@ -3,7 +3,15 @@
   {foreach from=$medicos item=medico}
     <h2>Medico: {$medico->Nombre}</h2>
     <h3>Especialidad: {$medico->Especialidad}</h3>
-    <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
+    {if $medico->Imagen != null}
+      <td>
+      <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
+      </td>
+    {else}
+      <td>
+      <img src="publico/img/user_image.png" alt="Imagen no disponible" class="imagen-tabla">
+      </td>
+    {/if}
   {/foreach}
     <div class="table-admin">
       <table class="table">

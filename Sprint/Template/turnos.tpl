@@ -19,16 +19,26 @@
   </thead>
   <tbody>
   {foreach from=$lista item=turno}
-    <tr>
-      <th  scope="row">IMG</th>
-      <td class="distancia table-success">
+    <tr id="{$turno->id_turno}">
+    {if $turno->Imagen != null}
+      <td>
+      <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
+      </td>
+    {else}
+      <td>
+      <img src="publico/img/user_image.png" alt="Imagen no disponible" class="imagen-tabla">
+      </td>
+    {/if}
+    <td class="table-success">
         <p>{$turno->Nombre}</p>
         <p>{$turno->Especialidad}</p>
         <p id="turn_date">{$turno->fecha}</p>
+         {if $turno->confirmado == 0}
+        <label class="table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></label>
+        {else}
+        <label class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></label>
+        {/if}
       </td>
-      {if $turno->confirmado == 0}
-        <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
-      {/if}
     </tr>
     {/foreach}
   </tbody>
