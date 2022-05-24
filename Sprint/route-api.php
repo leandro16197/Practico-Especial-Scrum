@@ -17,6 +17,13 @@ $router->addRoute(
 );
 
 $router->addRoute(
+    'turnos/medico/:ID_MEDICO',
+    'GET',
+    'ApiTurnController',
+    'getTurnsByMedicalId'
+);
+
+$router->addRoute(
     'confirmarTurno/:ID_TURNO',
     'POST',
     'ApiTurnController',
