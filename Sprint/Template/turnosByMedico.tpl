@@ -3,7 +3,15 @@
   {foreach from=$medicos item=medico}
     <h2>Medico: {$medico->Nombre}</h2>
     <h3>Especialidad: {$medico->Especialidad}</h3>
-    <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
+    {if $medico->Imagen != null}
+      <td>
+      <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
+      </td>
+    {else}
+      <td>
+      <img src="publico/img/user_image.png" alt="Imagen no disponible" class="imagen-tabla">
+      </td>
+    {/if}
   {/foreach}
     <div class="table-admin">
       <table class="table">
@@ -17,10 +25,12 @@
     <tr>
       <td class="distancia table-success">
         <p id="turn_date">{$turno->fecha}</p>
-      </td>
       {if $turno->confirmado == 0}
         <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
+      {else}
+        <td class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></td>
       {/if}
+      </td>
     </tr>
     {/foreach}
   </tbody>

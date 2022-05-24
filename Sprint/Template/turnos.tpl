@@ -21,7 +21,7 @@
   {foreach from=$lista item=turno}
     <tr id="{$turno->id_turno}">
     {if $turno->Imagen != null}
-      <td>  
+      <td>
       <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
       </td>
     {else}

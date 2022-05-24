@@ -1,5 +1,4 @@
 <?php
-require_once('./Helper/AuthHelper.php');
 require_once('./Model/TurnModel.php');
 require_once('./View/TurnosView.php');
 
@@ -31,10 +30,5 @@ class TurnosController
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
     $Medico = $this->model->getMedicalById($idMedical);
     $this->view->showTurnosByMedico($Turno, $Medico);
-  }
-
-  function createTurno()
-  {
-    $this->view->createTurno();
   }
 }
