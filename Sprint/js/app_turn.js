@@ -67,6 +67,8 @@ async function GetConfirmTurn(id_turn){
 
 function ShowConfirmTurn(json){
 
+  console.log(json[0]);
+
   let form = document.createElement("form");
   form.action = "verTurnoConfirmado";
   form.method = "POST";
@@ -81,6 +83,16 @@ function ShowConfirmTurn(json){
   medicalSpeciality.type = "text";
   medicalSpeciality.value = json[0].Especialidad;
 
+  let idTurno = document.createElement("input");
+  idTurno.name = "id_turno";
+  idTurno.type = "text";
+  idTurno.value = json[0].id_turno;
+
+  let imagen = document.createElement("input");
+  imagen.name = "imagen";
+  imagen.type = "text";
+  imagen.value = json[0].Imagen;
+
   let date = document.createElement("input");
   date.name = "date";
   date.type = "text";
@@ -94,6 +106,8 @@ function ShowConfirmTurn(json){
   form.appendChild(medicalSpeciality);
   form.appendChild(date);
   form.appendChild(btn);
+  form.appendChild(idTurno);
+  form.appendChild(imagen);
 
   let div = document.querySelector("#div_cont_form_Confirm_turn");
   div.appendChild(form);
@@ -104,9 +118,10 @@ function ShowConfirmTurn(json){
 
 async function printInfo(trname){
     let tr = document.getElementById(trname).innerHTML;
+    console.log(document.getElementById(trname));
 
     let original = document.body.innerHTML;
-  console.log(trname);
+    console.log(trname);
    
 
     document.body.innerHTML = tr

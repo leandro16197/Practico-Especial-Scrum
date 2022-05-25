@@ -34,11 +34,14 @@ class TurnosController
 
   function showConfirmTurn(){
 
-    if(!empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date'])){
+    if(!empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date']) &&
+    !empty($_POST['id_turno'])){
       $medicalName = $_POST['medicalName'];
       $medicalSpeciality = $_POST['medicalSpeciality'];
       $date = $_POST['date'];
-      $this->view->showConfirmTurn($medicalName, $medicalSpeciality, $date);
+      $id_turno = $_POST['id_turno'];
+      $imagen = $_POST['imagen'];
+      $this->view->showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen);
     }
   }
 }
