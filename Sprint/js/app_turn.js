@@ -98,6 +98,21 @@ function ShowConfirmTurn(json){
   date.type = "text";
   date.value = json[0].fecha;
 
+  let mail = document.createElement("input");
+  mail.name = "mail";
+  mail.type = "text";
+  mail.value = json[0].Email;
+
+  let nombrePaciente = document.createElement("input");
+  nombrePaciente.name = "nombre_paciente";
+  nombrePaciente.type = "text";
+  nombrePaciente.value = json[0].nombre_paciente;
+
+  let apellidoPaciente = document.createElement("input");
+  apellidoPaciente.name = "apellido_paciente";
+  apellidoPaciente.type = "text";
+  apellidoPaciente.value = json[0].apellido_paciente;
+
   let btn = document.createElement("button");
   btn.id = "btn_form_confirm_turn";
   btn.type="submit";
@@ -108,6 +123,9 @@ function ShowConfirmTurn(json){
   form.appendChild(btn);
   form.appendChild(idTurno);
   form.appendChild(imagen);
+  form.appendChild(mail);
+  form.appendChild(nombrePaciente);
+  form.appendChild(apellidoPaciente);
 
   let div = document.querySelector("#div_cont_form_Confirm_turn");
   div.appendChild(form);
