@@ -46,7 +46,7 @@ class TurnosController
       $nombrePaciente = $_POST['nombre_paciente'];
       $apellidoPaciente = $_POST['apellido_paciente'];
 
-      $to = "nahucaroseli2100@gmail.com";
+      $to = "asenciomatias1@gmail.com";
       $subject = "Confirmacion turno";
       $message = "Tenes un turno confirmado";
       $headers = "From: asenciomatias1@gmail.com";
