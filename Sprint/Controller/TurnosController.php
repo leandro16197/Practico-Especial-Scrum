@@ -31,4 +31,14 @@ class TurnosController
     $Medico = $this->model->getMedicalById($idMedical);
     $this->view->showTurnosByMedico($Turno, $Medico);
   }
+
+  function showConfirmTurn(){
+
+    if(!empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date'])){
+      $medicalName = $_POST['medicalName'];
+      $medicalSpeciality = $_POST['medicalSpeciality'];
+      $date = $_POST['date'];
+      $this->view->showConfirmTurn($medicalName, $medicalSpeciality, $date);
+    }
+  }
 }

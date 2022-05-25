@@ -18,6 +18,9 @@ switch ($params[0]) {
     case 'verTurnosMedico':
         $TurnosController->getTurnsOfMedical();
         break;
+    case 'verTurnoConfirmado':
+        $TurnosController->showConfirmTurn();
+        break;
     default:
         $TurnosController->getHome();
         break;

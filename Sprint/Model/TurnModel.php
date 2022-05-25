@@ -34,6 +34,14 @@ class TurnModel
         return $turns;
     }
 
+    function getTurnsById($id){
+        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE id_turno = ?";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id));
+        $turns = $query->fetchAll(PDO::FETCH_OBJ);
+        return $turns;
+    }
+
     function getMedicalById($id)
     {
         $queryString = "SELECT * FROM medico m WHERE m.id_medico = ?";
