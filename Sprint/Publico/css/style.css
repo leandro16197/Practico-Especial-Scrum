@@ -14,10 +14,10 @@ body{
 }
 
 .titulo{
-  font-size: 300%;
+  font-size: 40px;
   color: rgba(0, 177, 118, 0.89);
-  margin: 2.5% 20%;
-  margin-left: 30%;
+  margin: 2.5% auto;
+  text-align: center;
 }
 
 button, .inputHora{
@@ -31,6 +31,11 @@ left: 267.55px;
 margin-top: 49px;
 padding: 15px;
 }
+a, a:hover{
+  text-decoration: none;
+  color: #28a745;
+}
+
 
 label{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -196,4 +201,23 @@ top: 0px;
 background: #00BFA6;
 display: flex;
 
+}
+/*EN PANTALLA DE TURNO CONFIRMADO*/
+.div_turn_confirm{
+  margin: 30px auto 30px auto;
+  padding: 50px;
+  background-color: #00BFA6;
+  width: 50%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.div_turn_confirm>p{
+  margin: 20px auto 20px auto;
+}
+
+.btn_print_confirm{
+  margin: auto;
+  height: 50px;
+  padding-top: 0;
 }

@@ -1,35 +1,35 @@
 {include file="Template/header.tpl"}
     <h1 class="titulo">{$titulo}</h1>
-  {foreach from=$medicos item=medico}
-    <h2>Medico: {$medico->Nombre}</h2>
-    <h3>Especialidad: {$medico->Especialidad}</h3>
-    {if $medico->Imagen != null}
+
+    <div class="table-admin">
+      <table class="table">
+      <thead class="table-success">
+      <tr>
+      <th scope="col">Turnos</th>
+      <th scope="col">Información</th>
+      </tr>
+  </thead>
+<tbody>
+  {foreach from=$lista item=turno}
+    <tr id="{$turno->id_turno}">
+    {if $turno->Imagen != null}
       <td>
-      <img src={$medico->Imagen} alt={$medico->Nombre} class="imagen-tabla">
+      <img src={$turno->Imagen} alt={$turno->Nombre} class="imagen-tabla">
       </td>
     {else}
       <td>
       <img src="publico/img/user_image.png" alt="Imagen no disponible" class="imagen-tabla">
       </td>
     {/if}
-  {/foreach}
-    <div class="table-admin">
-      <table class="table">
-      <thead class="table-success">
-      <tr>
-      <th scope="col">Turnos</th>
-      </tr>
-  </thead>
-  <tbody>
-  {foreach from=$lista item=turno}
-    <tr>
-      <td class="distancia table-success">
+    <td class="table-success">
+        <p>{$turno->Nombre}</p>
+        <p>{$turno->Especialidad}</p>
         <p id="turn_date">{$turno->fecha}</p>
-      {if $turno->confirmado == 0}
-        <td class="distancia table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></td>
-      {else}
-        <td class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></td>
-      {/if}
+         {if $turno->confirmado == 0}
+        <label class="table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></label>
+        {else}
+        <label class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></label>
+        {/if}
       </td>
     </tr>
     {/foreach}
