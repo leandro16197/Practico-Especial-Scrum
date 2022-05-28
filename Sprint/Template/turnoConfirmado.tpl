@@ -16,7 +16,7 @@
             <p>{$medico}</p>
             <p>{$especialidad}</p>
             <p id="turn_date">{$date}</p>
-            <label class="table-success"><button class="btn_print" type="button" id="{$id_turno}">Imprimir</button></label>
+            <label><button class="btn_print btn_print_confirm" type="button" id="{$id_turno}">Imprimir</button></label>
           </td>
         </tr>
 
