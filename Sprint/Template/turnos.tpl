@@ -44,7 +44,7 @@
         </tbody>
       </table>
     </div>
-    <div class="div_cont_form_Confirm_turn" id="div_cont_form_Confirm_turn"></div>
+    <div class="div_cont_form_Confirm_turn" id="div_cont_form_Confirm_turn" style="display:none"></div>
 <footer>
 
 </footer>
