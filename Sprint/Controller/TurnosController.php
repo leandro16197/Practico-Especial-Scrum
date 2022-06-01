@@ -51,7 +51,7 @@ class TurnosController
 
       $to = $mailPaciente;
       $subject = "Confirmacion de turno medico";
-      $message = "Usted tiene un turno para la fecha " . "$date" . " con el profesional " . "$medicalName";
+      $message = "Sr/a " . "$nombrePaciente " . "$apellidoPaciente" . ". Usted tiene un turno para la fecha " . "$date" . " con el profesional " . "$medicalName";
       $headers = "From: turnofaciltandil@gmail.com";
       mail($to, $subject, $message, $headers);
 
