@@ -11,7 +11,7 @@ class TurnModel
     // y los retorna
     function getTurnsOfMedical()
     {
-        $queryString ="SELECT * FROM turno t inner join medico mon m.id_medico=t.id_doctor";
+        $queryString ="SELECT * FROM turno t inner join medico m on m.id_medico=t.id_doctor";
         $query =$this->db->prepare($queryString);
         $query->execute();
         $turns=$query->fetchAll(PDO::FETCH_OBJ);
@@ -61,6 +61,15 @@ class TurnModel
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
         return $turns;
+    }
+
+    function getAllMedicals()
+    {
+        $queryString = "SELECT * FROM medico";
+        $query = $this->db->prepare($queryString);
+        $query->execute();
+        $medicals = $query->fetchAll(PDO::FETCH_OBJ);
+        return $medicals;
     }
 
     function confirmTurn($id)
