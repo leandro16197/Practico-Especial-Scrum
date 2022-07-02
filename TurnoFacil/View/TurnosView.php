@@ -12,7 +12,6 @@ class TurnosView
         $smarty->assign('titulo', "Login");
         $smarty->display('Template/login.tpl');
     }
-    function turnos($turnos)
     function turnos($turnos, $medicos)
     {
         $smarty = new Smarty();
