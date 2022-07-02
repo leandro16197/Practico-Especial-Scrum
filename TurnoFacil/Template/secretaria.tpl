@@ -1,7 +1,11 @@
-{include file="Template/header.tpl"}
+{include file="Template/head.tpl"}
     <h1 class="titulo">{$titulo}</h1>
     <form action="{BASE_URL}verTurnosMedico" method="post">
     </form>
+     <div class="secretaria"> 
+        <img src="publico/img/user_image.png" alt="Imagen no disponible" class="img-secretaria">
+        <p class="nombre">Secretaria</p>
+    </div>
     <!--Div contenedor de columna para listar turnos y columna de formulario para agragar un turno---->
     <div class="div_cont_verTurno_crearTurno">
       <!--Div contenedor de lista de los turnos-->
