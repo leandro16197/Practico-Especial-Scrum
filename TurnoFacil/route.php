@@ -27,4 +27,7 @@ switch ($params[0]) {
     case 'viewSecretaria':
         $TurnosController->getViewTurnos();
         break;
+    case 'eliminarTurno':
+        $TurnosController->eliminarTurno($params[1]);
+        break;
 }

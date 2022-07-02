@@ -33,10 +33,9 @@
                   <p>{$turno->Nombre}</p>
                   <p>{$turno->Especialidad}</p>
                   <p id="turn_date">{$turno->fecha}</p>
-                  {if $turno->confirmado == 0}
-                    <label class="table-success"><button class="btn_confirm" type="button" id="{$turno->id_turno}">confirmar</button></label>
-                  {else}
-                    <label class="table-success"><button class="btn_print" type="button" id="{$turno->id_turno}">Imprimir</button></label>
+                   <!--Si el medico entra en urgencia, aparece el boton "eliminar" en la vista de la secretaria-->
+                  {if $turno->urgencia == 1}
+                    <label class="table-success"><button type="button" id="{$turno->id_turno}"><a href="eliminarTurno/{$turno->id_turno}">eliminar</a></button></label>
                   {/if}
                 </td>
               </tr>

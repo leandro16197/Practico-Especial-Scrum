@@ -41,6 +41,10 @@ class TurnosController
     $Medico = $this->model->getMedicalById($idMedical);
     $this->view->showTurnosByMedico($Turno, $Medico);
   }
+  function eliminarTurno($id){
+    $this->model->deleteTurn($id);
+    $this->getViewTurnos();
+  }
 
   function showConfirmTurn()
   {
