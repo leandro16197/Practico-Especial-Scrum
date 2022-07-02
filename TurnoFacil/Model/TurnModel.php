@@ -78,4 +78,9 @@ class TurnModel
         $query = $this->db->prepare($queryString);
         $query->execute(array(1, $id));
     }
+    function deleteTurn($id){
+        $queryString = "DELETE FROM turno WHERE id_turno = ?";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id));
+    }
 }
