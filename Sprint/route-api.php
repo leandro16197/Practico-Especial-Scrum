@@ -17,13 +17,6 @@ $router->addRoute(
 );
 
 $router->addRoute(
-    'turnoConfirmado/:ID_TURNO',
-    'GET',
-    'ApiTurnController',
-    'getTurnsById'
-);
-
-$router->addRoute(
     'turnos/medico/:ID_MEDICO',
     'GET',
     'ApiTurnController',
@@ -36,7 +29,6 @@ $router->addRoute(
     'ApiTurnController',
     'confirmTurn'
 );
-
 
 // rutea
 $resource = $_GET['resource'];

@@ -1,27 +1,33 @@
-//"use strict";
-//document.querySelector(".btn_print").addEventListener('click', printInfo);
+"use strict";
+document.querySelector(".btn_print").addEventListener('click', printInfo);
 
-//let id_paciente = 11223344;
+let id_paciente = 11223344;
 
 document.addEventListener("DOMContentLoaded", function(){
-    //GetTurns(id_paciente);
+    GetTurns(id_paciente);
     try{
-      let btn_confirm = document.querySelectorAll(".btn_confirm");
-      btn_confirm.forEach(btn => {
-        btn.addEventListener('click', function(e){
-          e.preventDefault();
-          ConfirmTurn(btn.id);
+
+        let btn_confirm = document.querySelectorAll(".btn_confirm");
+
+        btn_confirm.forEach(btn => {
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                ConfirmTurn(btn.id);
+            });
         });
-      });
+        
     }catch(error){}
-  try{
-    let btn_print = document.querySelectorAll(".btn_print");
-    btn_print.forEach(btn => {
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        printInfo(btn.id);
+    try{
+
+      let btn_print = document.querySelectorAll(".btn_print");
+
+      btn_print.forEach(btn => {
+          btn.addEventListener('click', function(e){
+              e.preventDefault();
+              printInfo(btn.id);
+          });
       });
-    });
+      
   }catch(error){}
 });
 
@@ -29,75 +35,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-/*async function GetTurns(id){
-  try {
-    let recibido = await fetch('api/turnos/' + id);
-    let json = await recibido.json();
+async function GetTurns(id){
+    try {
+      let recibido = await fetch('api/turnos/' + id);
+      let json = await recibido.json();
 
-    console.log(json);
-  }
-  catch(t){
-    console.log(t);
-  }
-}*/
-
-async function ConfirmTurn(id_turn){
-  try {
-    await fetch('api/confirmarTurno/'+id_turn, {
-      "method": 'POST',
-      "headers": { "Content-Type": "application/json"},
-    });
-    GetConfirmTurn(id_turn);
+      console.log(json);
     }
-  catch (t) {
-    console.log(t);
-  }
+    catch(t){
+      console.log(t);
+    }
 }
 
-async function GetConfirmTurn(id_turn){
-  try {
-    let recibido = await fetch('api/turnoConfirmado/' + id_turn);
-    let json = await recibido.json();
-    ShowConfirmTurn(json);
-  }
-  catch (t) {
-    console.log(t);
-  }
-}
-
-function ShowConfirmTurn(json){
-
-  let form = document.createElement("form");
-  form.action = "verTurnoConfirmado";
-  form.method = "POST";
-
-  let medicalName = document.createElement("input");
-  medicalName.name = "medicalName";
-  medicalName.type = "text";
-  medicalName.value = json[0].Nombre;
-
-  let medicalSpeciality = document.createElement("input");
-  medicalSpeciality.name = "medicalSpeciality";
-  medicalSpeciality.type = "text";
-  medicalSpeciality.value = json[0].Especialidad;
-
-  let date = document.createElement("input");
-  date.name = "date";
-  date.type = "text";
-  date.value = json[0].fecha;
-
-  let btn = document.createElement("button");
-  btn.id = "btn_form_confirm_turn";
-  btn.type="submit";
-
-  form.appendChild(medicalName);
-  form.appendChild(medicalSpeciality);
-  form.appendChild(date);
-  form.appendChild(btn);
-
-  let div = document.querySelector("#div_cont_form_Confirm_turn");
-  div.appendChild(form);
-  btn.click();
+async function ConfirmTurn(id){
+    try {
+        await fetch('api/confirmarTurno/'+id, {
+          "method": 'POST',
+          "headers": { "Content-Type": "application/json"},
+        });
+        GetTurns(id_paciente);
+      }
+      catch (t) {
+        console.log(t);
+      }
 }
 
 
@@ -116,3 +76,29 @@ async function printInfo(trname){
    document.body.innerHTML = original;
   }
 
+async function sendEmail(){
+  /*const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'privatix-temp-mail-v1.p.rapidapi.com',
+      'X-RapidAPI-Key': 'ba0aae0a55msh382a46d8c4f24aap10fdcfjsn059afd07562b'
+    }
+  };
+  
+  fetch('https://privatix-temp-mail-v1.p.rapidapi.com/request/one_mail/id/eileen54k_t786a@hxsni.com/', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));*/
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "sender@email_address.com",
+      Password: "Enter your password",
+      To: 'receiver@email_address.com',
+      From: "sender@email_address.com",
+      Subject: "Sending Email using javascript",
+      Body: "Well that was easy!!",
+    })
+      .then(function (message) {
+        alert("mail sent successfully")
+      });
+}

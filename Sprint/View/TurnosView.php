@@ -32,13 +32,4 @@ class TurnosView
         $smarty->assign('error', $error);
         $smarty->display('Template/error.tpl');
     }
-
-    function showConfirmTurn($medicalName, $medicalSpeciality, $date){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Turno Confirmado');
-        $smarty->assign('medico', $medicalName);
-        $smarty->assign('especialidad', $medicalSpeciality);
-        $smarty->assign('date', $date);
-        $smarty->display('Template/turnoConfirmado.tpl');
-    }
 }
