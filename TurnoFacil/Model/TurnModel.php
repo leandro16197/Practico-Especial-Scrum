@@ -6,7 +6,17 @@ class TurnModel
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=turnofacil;charset=utf8', 'root', '');
     }
-
+    //getTurnsOfMedical()
+    //trae todos los turnos de la base de datos
+    // y los retorna
+    function getTurnsOfMedical()
+    {
+        $queryString ="SELECT * FROM turno t inner join medico mon m.id_medico=t.id_doctor";
+        $query =$this->db->prepare($queryString);
+        $query->execute();
+        $turns=$query->fetchAll(PDO::FETCH_OBJ);
+        return $turns;
+    }
     function getTurnsByPatientId($id)
     {
         $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY t.fecha";

@@ -7,7 +7,13 @@ class TurnosView
     function __construct()
     {
     }
-
+    function turnos($turnos)
+    {
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'lista de turnos');
+        $smarty->assign('turnos', $turnos);
+        $smarty->display('Template/secretaria.tpl');
+    }
     function showTurnos($Turnos, $Medicos)
     {
         $smarty = new Smarty();

@@ -24,4 +24,7 @@ switch ($params[0]) {
     default:
         $TurnosController->getHome();
         break;
+    case 'viewSecretaria':
+        $TurnosController->getViewTurnos();
+        break;
 }
