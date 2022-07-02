@@ -221,6 +221,9 @@ display: flex;
   height: 50px;
   padding-top: 0;
 }
+
+
+
 /*PANTALLA DE SECRETARIA */
 .secretaria{
   background-color: #c3e6cb;
@@ -228,9 +231,8 @@ display: flex;
   margin: 0px auto;
   margin: 30px auto 30px auto;
   padding: 20px;
-  
-  
 }
+
 .img-secretaria{
   display: block;
   margin: 0px auto;
@@ -309,4 +311,34 @@ display: flex;
 }
 .colorLogin{
   background-color: #a6daaa;
+}
+
+.div_cont_verTurno_crearTurno{
+  display: flex;
+}
+.table-admin{
+  margin: auto;
+}
+
+.contenedor_formulario_agregar_turno{
+  width: 85%;
+  height: 500px;
+  background-color: #00BFA6;
+  margin: auto;
+}
+/*FORMULARIO CARGAR TURNO */
+
+.form_agregar_turno{
+  display: block;
+}
+form > legend{
+  text-align: center;
+}
+
+form > button{
+  margin: auto;
+}
+
+.div_select_medicos{
+  width: auto;
 }
