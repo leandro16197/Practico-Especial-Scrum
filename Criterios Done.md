@@ -5,7 +5,7 @@
     - nombre del método
     - funcionalidad que desarrolla
     - tipo de retorno
-- Que pase el test funcional.
+- Que pase el test funcional.//se encuentran en la carpeta Testeo
 
 #### Template de testeo funcional
 
