@@ -63,6 +63,15 @@ class TurnModel
         return $turns;
     }
 
+    function getAllMedicals()
+    {
+        $queryString = "SELECT * FROM medico";
+        $query = $this->db->prepare($queryString);
+        $query->execute();
+        $medicals = $query->fetchAll(PDO::FETCH_OBJ);
+        return $medicals;
+    }
+
     function confirmTurn($id)
     {
         $queryString = "UPDATE turno SET confirmado = ? WHERE id_turno = ?";

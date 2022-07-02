@@ -19,8 +19,10 @@ class TurnosController
   function getViewTurnos()
   {
     $turnos=$this->model->getTurnsOfMedical();
-    $this->view->turnos($turnos);
+    $medicos=$this->model->getAllMedicals();
+    $this->view->turnos($turnos, $medicos);
   }
+
   function getHome()
   {
     $Turno = $this->model->getTurnsByPatientId(11223344);
