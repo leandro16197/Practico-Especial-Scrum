@@ -25,6 +25,6 @@ Para aplicarlo en el segundo sprint
     - Los testeos se subiran a la carpeta Testeos/"idTarea(de Jira)".
 #### Comentario en codigo
 siguiendo el esquema:
--nombre del método
--funcionalidad que desarrolla
--tipo de retorno
+    - nombre del metedo
+    - funcionalidad que desarrolla
+    - tipo de retorno
