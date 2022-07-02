@@ -19,6 +19,8 @@ switch ($params[0]) {
         $TurnosController->getTurnsOfMedical();
         break;
     case 'verTurnoConfirmado':
+        //muestra pantalla con el turno que fue confirmado
+        //también envia email al paciente con los datos del turno confirmado
         $TurnosController->showConfirmTurn();
         break;
     default:
