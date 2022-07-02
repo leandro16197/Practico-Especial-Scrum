@@ -7,12 +7,9 @@
     - tipo de retorno
 - Que pase el test funcional.//se encuentran en la carpeta Testeo
 - Debe contar con comentarios en código claros, precisos y objetivos sobre las funciones
-
-nombre del método
-
-funcionalidad que desarrolla
-
-tipo de retorno
+    - nombre del método
+    - funcionalidad que desarrolla
+    - tipo de retorno
 
 Para aplicarlo en el segundo sprint
 #### Template de testeo funcional
