@@ -1,3 +1,4 @@
+{include file="Template/head.tpl"}
 {include file="Template/header.tpl"}
     <h1 class="titulo">{$titulo}</h1>
     <form action="{BASE_URL}verTurnosMedico" method="post">
@@ -9,7 +10,7 @@
       </select>
       <button type="submit">Buscar</button>
     </form>
-    <div class="table-admin">
+    <div class="table-turnos">
       <table class="table">
         <thead class="table-success">
           <tr>

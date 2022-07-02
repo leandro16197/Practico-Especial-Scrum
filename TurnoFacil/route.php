@@ -13,7 +13,7 @@ $TurnosController = new TurnosController();
 $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
-        $TurnosController->getHome();
+        $TurnosController->getLogin();
         break;
     case 'verTurnosMedico':
         $TurnosController->getTurnsOfMedical();
