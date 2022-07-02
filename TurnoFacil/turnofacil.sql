@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2022 a las 18:49:49
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 02-07-2022 a las 18:24:09
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,15 +32,17 @@ CREATE TABLE `medico` (
   `Nombre` varchar(30) NOT NULL,
   `Especialidad` varchar(30) NOT NULL,
   `Imagen` mediumblob DEFAULT NULL,
-  `Obras_sociales` varchar(50) NOT NULL
+  `Obras_sociales` varchar(50) NOT NULL,
+  `urgencia` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `medico`
 --
 
-INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`) VALUES
-(2, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC');
+INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`) VALUES
+(1, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1),
+(2, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0);
 
 -- --------------------------------------------------------
 
@@ -85,8 +87,7 @@ CREATE TABLE `turno` (
 --
 
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_doctor`, `fecha`, `confirmado`) VALUES
-(8, 11223344, 2, '2022-05-19 18:26:52', 0),
-(9, 11223344, 1, '2022-05-19 18:26:52', 1);
+(8, 11223344, 2, '2022-05-19 18:26:52', 1);
 
 --
 -- Índices para tablas volcadas
