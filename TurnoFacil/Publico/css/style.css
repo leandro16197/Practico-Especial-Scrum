@@ -249,6 +249,7 @@ display: flex;
   width: 90%;
   color:rgba(247, 238, 238, 0.692);
 }
+<<<<<<< HEAD
 
 .div_cont_verTurno_crearTurno{
   display: flex;
@@ -280,6 +281,8 @@ form > button{
   width: auto;
 }
 
+=======
+>>>>>>> TM-44
 .color-fondo{
   margin-top: -100px;
  background-color: #94aa9a;
@@ -342,4 +345,34 @@ form > button{
 }
 .colorLogin{
   background-color: #a6daaa;
+}
+
+.div_cont_verTurno_crearTurno{
+  display: flex;
+}
+.table-admin{
+  margin: auto;
+}
+
+.contenedor_formulario_agregar_turno{
+  width: 85%;
+  height: 500px;
+  background-color: #00BFA6;
+  margin: auto;
+}
+/*FORMULARIO CARGAR TURNO */
+
+.form_agregar_turno{
+  display: block;
+}
+form > legend{
+  text-align: center;
+}
+
+form > button{
+  margin: auto;
+}
+
+.div_select_medicos{
+  width: auto;
 }
