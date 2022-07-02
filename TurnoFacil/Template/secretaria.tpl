@@ -1,7 +1,11 @@
-{include file="Template/header.tpl"}
+{include file="Template/head.tpl"}
     <h1 class="titulo">{$titulo}</h1>
     <form action="{BASE_URL}verTurnosMedico" method="post">
     </form>
+    <div class="secretaria"> 
+        <img src="publico/img/user_image.png" alt="Imagen no disponible" class="img-secretaria">
+        <p class="nombre">Secretaria</p>
+    </div>
     <div class="table-admin">
       <table class="table">
         <thead class="table-success">

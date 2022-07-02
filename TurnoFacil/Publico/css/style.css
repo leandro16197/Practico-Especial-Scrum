@@ -2,7 +2,7 @@
 
 /*Titulo*/
 body{
-  background: #e9e7e7;
+  background: #ced3ce;
 }
 
 *{
@@ -220,4 +220,30 @@ display: flex;
   margin: auto;
   height: 50px;
   padding-top: 0;
+}
+/*PANTALLA DE SECRETARIA */
+.secretaria{
+  background-color: #c3e6cb;
+  display: block;
+  margin: 0px auto;
+  margin: 30px auto 30px auto;
+  padding: 20px;
+  
+  
+}
+.img-secretaria{
+  display: block;
+  margin: 0px auto;
+}
+.nombre{
+  color : black;
+  font-size: 25px;
+  padding: 30px;
+  text-align: center;
+}
+.table-admin {
+  margin: 5% auto;
+  margin-bottom: 10%;
+  width: 90%;
+  color:rgba(247, 238, 238, 0.692);
 }
