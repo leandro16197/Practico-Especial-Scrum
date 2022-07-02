@@ -223,23 +223,7 @@ display: flex;
 }
 
 
-.div_cont_verTurno_crearTurno{
-  display: flex;
-}
-.table-admin{
-  margin: auto;
-}
 
-.contenedor_formulario_agregar_turno{
-  width: 85%;
-  height: 500px;
-  background-color: #00BFA6;
-  margin: auto;
-}
-
-form > legend{
-  text-align: center;
-}
 /*PANTALLA DE SECRETARIA */
 .secretaria{
   background-color: #c3e6cb;
@@ -264,4 +248,34 @@ form > legend{
   margin-bottom: 10%;
   width: 90%;
   color:rgba(247, 238, 238, 0.692);
+}
+
+.div_cont_verTurno_crearTurno{
+  display: flex;
+}
+.table-admin{
+  margin: auto;
+}
+
+.contenedor_formulario_agregar_turno{
+  width: 85%;
+  height: 500px;
+  background-color: #00BFA6;
+  margin: auto;
+}
+/*FORMULARIO CARGAR TURNO */
+
+.form_agregar_turno{
+  display: block;
+}
+form > legend{
+  text-align: center;
+}
+
+form > button{
+  margin: auto;
+}
+
+.div_select_medicos{
+  width: auto;
 }

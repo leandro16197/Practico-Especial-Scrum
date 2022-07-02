@@ -48,12 +48,15 @@
       <div class="contenedor_formulario_agregar_turno">
         <form class="form_agregar_turno" action="{BASE_URL}verTurnosMedico" method="post">
           <legend>Cargar turno</legend>
-          <label>Seleccionar médico: </label>
-            <select name="medico">
-            {foreach from=$medicos item=medico}
-              <option value="{$medico->id_doctor}">{$medico->Nombre}</option>
-            {/foreach}
-            </select>
+            <div class="div_select_medicos">
+              <label>Seleccionar médico: </label>
+              <select name="medico">
+              {foreach from=$medicos item=medico}
+                <option value="{$medico->id_doctor}">{$medico->Nombre}</option>
+              {/foreach}
+              </select>
+            </div>
+          <button type="submit">Cargar</button>
         </form>
       </div>
     </div>
