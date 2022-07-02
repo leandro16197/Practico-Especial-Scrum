@@ -44,7 +44,10 @@ class TurnosView
         $smarty->assign('error', $error);
         $smarty->display('Template/error.tpl');
     }
-
+    //Esta función, "showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null)"
+    //carga el template que muestra la pantalla del turno confirmado
+    //Paráetros que recibe: nombre del médico, especialidad del médico, fecha del turno, imagen del médico.
+    //sin retorno.
     function showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null){
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turno Confirmado');
