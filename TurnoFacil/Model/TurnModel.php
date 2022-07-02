@@ -62,7 +62,9 @@ class TurnModel
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
         return $turns;
     }
-
+    //Esta función, "getAllMedicals()", busca en la base de datos todos los médicos cargados
+    //No recibe parámetros
+    //retorna todos los médicos guardados en la base de datos
     function getAllMedicals()
     {
         $queryString = "SELECT * FROM medico";
@@ -71,7 +73,10 @@ class TurnModel
         $medicals = $query->fetchAll(PDO::FETCH_OBJ);
         return $medicals;
     }
-
+    //Esta función, "confirmTurn($id)", cambia en la base de datos el estado de confirmación de un turno en específico.
+    //lo cambia de no confirmado a confirmado.
+    //parametro que recibe: id del turno a cambiar confirmación.
+    //sin retorno.
     function confirmTurn($id)
     {
         $queryString = "UPDATE turno SET confirmado = ? WHERE id_turno = ?";
