@@ -12,6 +12,10 @@ class TurnosController
     $this->model = new TurnModel();
     $this->view = new TurnosView();
   }
+  function getLogin()
+  {
+    $this->view->DisplayLogin();
+  }
   function getViewTurnos()
   {
     $turnos=$this->model->getTurnsOfMedical();

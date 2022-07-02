@@ -7,6 +7,11 @@ class TurnosView
     function __construct()
     {
     }
+    public function DisplayLogin(){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', "Login");
+        $smarty->display('Template/login.tpl');
+    }
     function turnos($turnos)
     {
         $smarty = new Smarty();
