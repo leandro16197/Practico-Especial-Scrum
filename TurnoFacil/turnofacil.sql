@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2022 at 09:08 PM
+-- Generation Time: Jul 03, 2022 at 09:53 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -42,8 +42,8 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`, `id_secretaria`) VALUES
-(2, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 1, 1),
-(3, 'Pepe', 'asfasf', NULL, 'aaaa', 0, 1);
+(2, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1, 1),
+(4, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -108,8 +108,8 @@ CREATE TABLE `turno` (
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1),
 (9, 11223344, 1, '2022-05-07 18:26:52', 1),
-(10, 11223344, 3, '2022-05-22 20:07:24', 1),
-(11, 11223344, 3, '2025-05-07 15:25:18', 1),
+(10, 11223344, 4, '2022-05-22 20:07:24', 1),
+(11, 11223344, 4, '2025-05-07 15:25:18', 1),
 (12, 11223344, 2, '2022-05-19 16:36:59', 0),
 (13, 11223344, 2, '2022-05-28 16:36:59', 1);
 
@@ -152,7 +152,7 @@ ALTER TABLE `turno`
 -- AUTO_INCREMENT for table `medico`
 --
 ALTER TABLE `medico`
-  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `secretaria`
