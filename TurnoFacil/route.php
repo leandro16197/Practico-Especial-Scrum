@@ -23,13 +23,21 @@ switch ($params[0]) {
         //también envia email al paciente con los datos del turno confirmado
         $TurnosController->showConfirmTurn();
         break;
-    default:
-        $TurnosController->getHome();
-        break;
     case 'viewSecretaria':
-        $TurnosController->getViewTurnos();
+        $TurnosController->getTurnsOfMedicalsOfSecretary();
+        break;
+    case 'viewTurnsMedicoOfSecretaria':
+        //muestra la misma view de secretaria pero solo con turnos de medico seleccionado
+        $TurnosController->getTurnsOfMedicalOfSecretary();
+        break;
+    case 'viewTurnsMedicosInUrgency':
+        //muestra la misma view de secretaria pero solo con turnos de medicos en urgencia
+        $TurnosController->getTurnsOfMedicalsInUrgency();
         break;
     case 'eliminarTurno':
         $TurnosController->eliminarTurno($params[1]);
+        break;
+    default:
+        $TurnosController->getHome();
         break;
 }

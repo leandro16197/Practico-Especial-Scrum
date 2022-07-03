@@ -6,19 +6,6 @@
         <img src="publico/img/user_image.png" alt="Imagen no disponible" class="img-secretaria">
         <p class="nombre">Secretaria</p>
     </div>
-    <form action="{BASE_URL}viewTurnsMedicosInUrgency" method="post">
-      <button type="submit" class="btn btn-outline-danger" size="10px">Ver medicos en urgencia</button>
-    </form>
-    <!--form con select para elegir un medico por nombre y filtrar vista a turnos de este---->
-    <form action="{BASE_URL}viewTurnsMedicoOfSecretaria" method="post">
-      <label>Seleccionar turnos de medico: </label>
-      <select name="medico">
-      {foreach from=$medicos item=medico}
-        <option value="{$medico->id_medico}">{$medico->Nombre}</option>
-      {/foreach}
-      </select>
-      <button type="submit">Buscar</button>
-    </form>
     <!--Div contenedor de columna para listar turnos y columna de formulario para agragar un turno---->
     <div class="div_cont_verTurno_crearTurno">
       <!--Div contenedor de lista de los turnos-->
