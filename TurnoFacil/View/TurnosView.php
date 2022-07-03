@@ -7,7 +7,8 @@ class TurnosView
     function __construct()
     {
     }
-    public function DisplayLogin(){
+    public function DisplayLogin()
+    {
         $smarty = new Smarty();
         $smarty->assign('titulo', "Login");
         $smarty->display('Template/login.tpl');
@@ -38,6 +39,19 @@ class TurnosView
         $smarty->display('Template/turnosByMedico.tpl');
     }
 
+    // Esta funcion "showTurnosByMedicoOfSecretary($Turnos, $Medicos)"
+    // carga el template que muestra los turnos del medico filtrado
+    // sin retorno
+
+    function showTurnosByMedicoOfSecretary($turnos, $medicos)
+    {
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'Administracion de Turnos');
+        $smarty->assign('turnos', $turnos);
+        $smarty->assign('medicos', $medicos);
+        $smarty->display('Template/medicoOfSecretaria.tpl');
+    }
+
     function renderError($error)
     {
         $smarty = new Smarty();
@@ -48,7 +62,8 @@ class TurnosView
     //carga el template que muestra la pantalla del turno confirmado
     //Paráetros que recibe: nombre del médico, especialidad del médico, fecha del turno, imagen del médico.
     //sin retorno.
-    function showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null){
+    function showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null)
+    {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turno Confirmado');
         $smarty->assign('medico', $medicalName);

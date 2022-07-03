@@ -22,9 +22,9 @@ class TurnosController
   //sin
   function getViewTurnos()
   {
-    $turnos=$this->model->getTurnsOfMedical();
+    $turnos = $this->model->getTurnsOfMedical();
     //Busca todos los médicos guardados en la base de datos, para mostrar opciones en formulario para crear un nuevo turno
-    $medicos=$this->model->getAllMedicals();
+    $medicos = $this->model->getAllMedicals();
     //llama al view para que lo muestre por pantalla
     $this->view->turnos($turnos, $medicos);
   }
@@ -47,7 +47,25 @@ class TurnosController
     $Medico = $this->model->getMedicalById($idMedical);
     $this->view->showTurnosByMedico($Turno, $Medico);
   }
-  function eliminarTurno($id){
+
+  // Esta funcion "getTurnsOfMedicalOfSecretary" trae los turnos del medico elegido en el select,
+  // en este se pasa el id por POST para buscar turnos de este medico. Luego carga devuelta la
+  // vista de turnos pero solo con los del medico filtrado.
+  // sin retorno.
+  function getTurnsOfMedicalOfSecretary()
+  {
+    $idMedical = $_POST['medico'];
+    if (!isset($idMedical) || empty($idMedical)) {
+      $this->view->renderError("Error! medico no especificado");
+      return;
+    }
+    $Turno = $this->model->getTurnsByMedicalId($idMedical);
+    $Medico = $this->model->getMedicalById($idMedical);
+    $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
+  }
+
+  function eliminarTurno($id)
+  {
     $this->model->deleteTurn($id);
     $this->getViewTurnos();
   }
@@ -56,8 +74,8 @@ class TurnosController
   //carga la pantalla donde se muestra el turno que fue confirmado
   //envia un email al paciente con los datos del turno que fué confirmado
   //parametro que recibe: recibe los datos del turno confirmado
-      //nombre del médico, especialidad del médico, id del turno, imagen del médico, fecha del turno
-      //email del paciente, nombre del paciente, apellido del paciente y estado de confirmación delturno.
+  //nombre del médico, especialidad del médico, id del turno, imagen del médico, fecha del turno
+  //email del paciente, nombre del paciente, apellido del paciente y estado de confirmación delturno.
   //sin retorno
   function showConfirmTurn()
   {
