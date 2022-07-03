@@ -30,6 +30,10 @@ switch ($params[0]) {
         //muestra la misma view de secretaria pero solo con turnos de medico seleccionado
         $TurnosController->getTurnsOfMedicalOfSecretary();
         break;
+    case 'viewTurnsMedicosInUrgency':
+        //muestra la misma view de secretaria pero solo con turnos de medicos en urgencia
+        $TurnosController->getTurnsOfMedicalsInUrgency();
+        break;
     case 'eliminarTurno':
         $TurnosController->eliminarTurno($params[1]);
         break;

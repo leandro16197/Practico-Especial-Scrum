@@ -64,6 +64,17 @@ class TurnosController
     $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
   }
 
+  // Esta funcion "getTurnsOfMedicalsInUrgency" trae los turnos de los medicos en urgencia y
+  // estos medicos en urgencia. Luego carga devuelta la
+  // vista de turnos pero solo con los turnos y medicos en urgencia.
+  // sin retorno.
+  function getTurnsOfMedicalsInUrgency()
+  {
+    $turnos = $this->model->getTurnsInUrgency();
+    $medicos = $this->model->getMedicalsInUrgency();
+    $this->view->turnos($turnos, $medicos);
+  }
+
   function eliminarTurno($id)
   {
     $this->model->deleteTurn($id);
