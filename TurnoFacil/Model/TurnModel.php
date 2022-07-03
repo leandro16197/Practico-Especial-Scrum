@@ -11,7 +11,7 @@ class TurnModel
     // y los retorna
     function getTurnsOfMedical()
     {
-        $queryString = "SELECT * FROM turno t inner join medico m on m.id_medico=t.id_doctor";
+        $queryString = "SELECT * FROM turno t inner join medico m on m.id_medico=t.id_medico";
         $query = $this->db->prepare($queryString);
         $query->execute();
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -19,7 +19,20 @@ class TurnModel
     }
     function getTurnsByPatientId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY t.fecha";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id));
+        $turns = $query->fetchAll(PDO::FETCH_OBJ);
+        return $turns;
+    }
+
+    // la funcion "getTurnsBySecretaryId($id)"
+    // Selecciona de la base de datos los turnos donde el medico sea parte del
+    // grupo que administra la secretaria(tenga id_secretaria igual al de esta secretaria)
+    // retorna esta lista de turnos.
+    function getTurnsBySecretaryId($id)
+    {
+        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -28,7 +41,7 @@ class TurnModel
 
     function getTurnsByMedicalId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -40,7 +53,7 @@ class TurnModel
     // retorna la lista de turnos obtenida anteriormente
     function getTurnsInUrgency()
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE m.urgencia = 1 GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.urgencia = 1 GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute();
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -49,7 +62,20 @@ class TurnModel
 
     function getMedicalsByPatientId($id)
     {
-        $queryString = "SELECT DISTINCT m.nombre, t.id_doctor FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY m.nombre";
+        $queryString = "SELECT DISTINCT m.Nombre, t.id_medico FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY m.nombre";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id));
+        $turns = $query->fetchAll(PDO::FETCH_OBJ);
+        return $turns;
+    }
+
+    // funcion "getMedicalsBySecretaryId($id)"
+    // busca en la base de datos los turnos donde el medico tenga el id_secretaria
+    // recibido por parametro
+    // retorna la lista de turnos obtenida anteriormente
+    function getMedicalsBySecretaryId($id)
+    {
+        $queryString = "SELECT DISTINCT m.Nombre, t.id_medico FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY m.nombre";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -59,7 +85,7 @@ class TurnModel
     function getTurnsById($id)
     {
         $queryString = "SELECT t.id_turno, t.fecha, m.Nombre, m.Imagen, p.Email, m.Especialidad, p.Nombre as nombre_paciente, p.apellido as apellido_paciente
-                        FROM turno t INNER JOIN medico m ON m.id_medico = t.id_doctor
+                        FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico
                         INNER JOIN paciente p ON t.dni_paciente = p.DNI WHERE id_turno = ?";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));

@@ -19,7 +19,7 @@ class TurnosController
 
   //esta función, "getViewTurnos()", muestra en pantalla de la secreataria todos los turno y formulario para crear un turno
   //no recibe parámetros
-  //sin
+  //sin retorno
   function getViewTurnos()
   {
     $turnos = $this->model->getTurnsOfMedical();
@@ -34,6 +34,17 @@ class TurnosController
     $Turno = $this->model->getTurnsByPatientId(11223344);
     $Medicos = $this->model->getMedicalsByPatientId(11223344);
     $this->view->showTurnos($Turno, $Medicos);
+  }
+
+  //esta función, "getTurnsOfMedicalsOfSecretary()", muestra en pantalla de la secreataria todos los turnos de los medicos que administra y formulario para crear un turno
+  //no recibe parámetros
+  //sin retorno
+
+  function getTurnsOfMedicalsOfSecretary()
+  {
+    $Turno = $this->model->getTurnsBySecretaryId(1);
+    $Medicos = $this->model->getMedicalsBySecretaryId(1);
+    $this->view->turnos($Turno, $Medicos);
   }
 
   function getTurnsOfMedical()

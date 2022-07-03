@@ -5,7 +5,7 @@
       <label>Seleccionar turnos de medico: </label>
       <select name="medico">
       {foreach from=$medicos item=medico}
-        <option value="{$medico->id_doctor}">{$medico->nombre}</option>
+        <option value="{$medico->id_medico}">{$medico->Nombre}</option>
       {/foreach}
       </select>
       <button type="submit">Buscar</button>

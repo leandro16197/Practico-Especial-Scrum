@@ -24,7 +24,7 @@ switch ($params[0]) {
         $TurnosController->showConfirmTurn();
         break;
     case 'viewSecretaria':
-        $TurnosController->getViewTurnos();
+        $TurnosController->getTurnsOfMedicalsOfSecretary();
         break;
     case 'viewTurnsMedicoOfSecretaria':
         //muestra la misma view de secretaria pero solo con turnos de medico seleccionado
