@@ -43,9 +43,9 @@ class TurnosController
       $this->view->renderError("Error! medico no especificado");
       return;
     }
-    $Turno = $this->model->getTurnsByMedicalId($idMedical);
-    $Medico = $this->model->getMedicalById($idMedical);
-    $this->view->showTurnosByMedico($Turno, $Medico);
+    $turnos = $this->model->getTurnsByMedicalId($idMedical);
+    $medicos = $this->model->getMedicalById($idMedical);
+    $this->view->showTurnosByMedico($turnos, $medicos);
   }
 
   // Esta funcion "getTurnsOfMedicalOfSecretary" trae los turnos del medico elegido en el select,

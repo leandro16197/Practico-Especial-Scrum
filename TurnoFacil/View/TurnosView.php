@@ -30,12 +30,12 @@ class TurnosView
         $smarty->display('Template/turnos.tpl');
     }
 
-    function showTurnosByMedico($Turnos, $Medicos)
+    function showTurnosByMedico($turnos, $medicos)
     {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turnos De Medico');
-        $smarty->assign('lista', $Turnos);
-        $smarty->assign('medicos', $Medicos);
+        $smarty->assign('lista', $turnos);
+        $smarty->assign('medicos', $medicos);
         $smarty->display('Template/turnosByMedico.tpl');
     }
 
