@@ -106,7 +106,7 @@ CREATE TABLE `turno` (
 -- Volcado de datos para la tabla `turno`
 --
 
-INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_doctor`, `fecha`, `confirmado`) VALUES
+INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1);
 
 --
