@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2022 at 09:53 PM
+-- Generation Time: Jul 03, 2022 at 09:56 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -107,7 +107,7 @@ CREATE TABLE `turno` (
 
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1),
-(9, 11223344, 1, '2022-05-07 18:26:52', 1),
+(9, 11223344, 4, '2022-05-07 18:26:52', 1),
 (10, 11223344, 4, '2022-05-22 20:07:24', 1),
 (11, 11223344, 4, '2025-05-07 15:25:18', 1),
 (12, 11223344, 2, '2022-05-19 16:36:59', 0),
