@@ -50,7 +50,7 @@
               <label>Seleccionar médico: </label>
               <select name="medico">
               {foreach from=$medicos item=medico}
-                <option value="{$medico->id_doctor}">{$medico->Nombre}</option>
+                <option value="{$medico->id_medico}">{$medico->Nombre}</option>
               {/foreach}
               </select>
             </div>
