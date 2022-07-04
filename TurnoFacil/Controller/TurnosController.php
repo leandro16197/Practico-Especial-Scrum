@@ -16,10 +16,16 @@ class TurnosController
   {
     $this->view->DisplayLogin();
   }
+
+  //esta función, "getViewTurnos()", muestra en pantalla de la secreataria todos los turno y formulario para crear un turno
+  //no recibe parámetros
+  //sin retorno
   function getViewTurnos()
   {
-    $turnos=$this->model->getTurnsOfMedical();
-    $medicos=$this->model->getAllMedicals();
+    $turnos = $this->model->getTurnsOfMedical();
+    //Busca todos los médicos guardados en la base de datos, para mostrar opciones en formulario para crear un nuevo turno
+    $medicos = $this->model->getAllMedicals();
+    //llama al view para que lo muestre por pantalla
     $this->view->turnos($turnos, $medicos);
   }
 
@@ -30,7 +36,34 @@ class TurnosController
     $this->view->showTurnos($Turno, $Medicos);
   }
 
+  //esta función, "getTurnsOfMedicalsOfSecretary()", muestra en pantalla de la secreataria todos los turnos de los medicos que administra y formulario para crear un turno
+  //no recibe parámetros
+  //sin retorno
+
+  function getTurnsOfMedicalsOfSecretary()
+  {
+    $Turno = $this->model->getTurnsBySecretaryId(1);
+    $Medicos = $this->model->getMedicalsBySecretaryId(1);
+    $this->view->turnos($Turno, $Medicos);
+  }
+
   function getTurnsOfMedical()
+  {
+    $idMedical = $_POST['medico'];
+    if (!isset($idMedical) || empty($idMedical)) {
+      $this->view->renderError("Error! medico no especificado");
+      return;
+    }
+    $turnos = $this->model->getTurnsByMedicalId($idMedical);
+    $medicos = $this->model->getMedicalById($idMedical);
+    $this->view->showTurnosByMedico($turnos, $medicos);
+  }
+
+  // Esta funcion "getTurnsOfMedicalOfSecretary" trae los turnos del medico elegido en el select,
+  // en este se pasa el id por POST para buscar turnos de este medico. Luego carga devuelta la
+  // vista de turnos pero solo con los del medico filtrado.
+  // sin retorno.
+  function getTurnsOfMedicalOfSecretary()
   {
     $idMedical = $_POST['medico'];
     if (!isset($idMedical) || empty($idMedical)) {
@@ -39,13 +72,33 @@ class TurnosController
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
     $Medico = $this->model->getMedicalById($idMedical);
-    $this->view->showTurnosByMedico($Turno, $Medico);
+    $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
   }
-  function eliminarTurno($id){
+
+  // Esta funcion "getTurnsOfMedicalsInUrgency" trae los turnos de los medicos en urgencia y
+  // estos medicos en urgencia. Luego carga devuelta la
+  // vista de turnos pero solo con los turnos y medicos en urgencia.
+  // sin retorno.
+  function getTurnsOfMedicalsInUrgency()
+  {
+    $turnos = $this->model->getTurnsInUrgency();
+    $medicos = $this->model->getMedicalsInUrgency();
+    $this->view->turnos($turnos, $medicos);
+  }
+
+  function eliminarTurno($id)
+  {
     $this->model->deleteTurn($id);
     $this->getViewTurnos();
   }
 
+  //Esta finción, "showConfirmTurn()", completa dos tareas
+  //carga la pantalla donde se muestra el turno que fue confirmado
+  //envia un email al paciente con los datos del turno que fué confirmado
+  //parametro que recibe: recibe los datos del turno confirmado
+  //nombre del médico, especialidad del médico, id del turno, imagen del médico, fecha del turno
+  //email del paciente, nombre del paciente, apellido del paciente y estado de confirmación delturno.
+  //sin retorno
   function showConfirmTurn()
   {
 
@@ -53,22 +106,24 @@ class TurnosController
       !empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date']) &&
       !empty($_POST['id_turno']) && !empty($_POST['mail']) && !empty($_POST['nombre_paciente']) && !empty($_POST['apellido_paciente'])
     ) {
+      //guardo datos para pasarselos al view
       $medicalName = $_POST['medicalName'];
       $medicalSpeciality = $_POST['medicalSpeciality'];
       $date = $_POST['date'];
       $id_turno = $_POST['id_turno'];
       $imagen = $_POST['imagen'];
-
+      //guardo datos necesarios para enviar el email
       $mailPaciente = $_POST['mail'];
       $nombrePaciente = $_POST['nombre_paciente'];
       $apellidoPaciente = $_POST['apellido_paciente'];
-
+      //preparación de parámetros para enviar email
       $to = $mailPaciente;
       $subject = "Confirmacion de turno medico";
       $message = "Sr/a " . "$nombrePaciente " . "$apellidoPaciente" . ". Usted tiene un turno para la fecha " . "$date" . " con el profesional " . "$medicalName";
       $headers = "From: turnofaciltandil@gmail.com";
+      //envio del email
       mail($to, $subject, $message, $headers);
-
+      //carga de template con datos del turno confirmado para mostrarlos por pantalla
       $this->view->showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen);
     }
   }

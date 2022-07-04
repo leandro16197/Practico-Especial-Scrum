@@ -9,9 +9,9 @@
                             <input type="text" class="form-control" placeholder="Ingrese DNI" value="" />
                         </div>
                      <div class="form-group">
-                            <button type="submit" class="btnSubmit" value="Login"><a href="http://localhost/TPEMetodologiaGrupo3/TurnoFacil/verTurnos">login</a></button>
+                            <button type="submit" class="btnSubmit" value="Login"><a href="{BASE_URL}verTurnos">login</a></button>
                         </div>
-                       
+
                     </form>
                 </div>
                 <div class="colorLogin col-md-6 login-form-2">
@@ -24,7 +24,7 @@
                             <input type="password" class="form-control" placeholder="Ingrese contraseña" value="" />
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btnSubmit" value="Login"><a href="http://localhost/TPEMetodologiaGrupo3/TurnoFacil/viewSecretaria">login</a></button>
+                            <button type="submit" class="btnSubmit" value="Login"><a href="{BASE_URL}viewSecretaria">login</a></button>
                         </div>
                     </form>
                 </div>

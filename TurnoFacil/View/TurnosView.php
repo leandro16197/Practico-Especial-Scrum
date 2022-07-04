@@ -8,7 +8,8 @@ class TurnosView
     {
     }
 
-    public function DisplayLogin(){
+    public function DisplayLogin()
+    {
         $smarty = new Smarty();
         $smarty->assign('titulo', "Login");
         $smarty->display('Template/login.tpl');
@@ -31,13 +32,26 @@ class TurnosView
         $smarty->display('Template/turnos.tpl');
     }
 
-    function showTurnosByMedico($Turnos, $Medicos)
+    function showTurnosByMedico($turnos, $medicos)
     {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turnos De Medico');
-        $smarty->assign('lista', $Turnos);
-        $smarty->assign('medicos', $Medicos);
+        $smarty->assign('lista', $turnos);
+        $smarty->assign('medicos', $medicos);
         $smarty->display('Template/turnosByMedico.tpl');
+    }
+
+    // Esta funcion "showTurnosByMedicoOfSecretary($Turnos, $Medicos)"
+    // carga el template que muestra los turnos del medico filtrado
+    // sin retorno
+
+    function showTurnosByMedicoOfSecretary($turnos, $medicos)
+    {
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'Administracion de Turnos');
+        $smarty->assign('turnos', $turnos);
+        $smarty->assign('medicos', $medicos);
+        $smarty->display('Template/medicoOfSecretaria.tpl');
     }
 
     function renderError($error)
@@ -46,8 +60,12 @@ class TurnosView
         $smarty->assign('error', $error);
         $smarty->display('Template/error.tpl');
     }
-
-    function showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null){
+    //Esta función, "showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null)"
+    //carga el template que muestra la pantalla del turno confirmado
+    //Paráetros que recibe: nombre del médico, especialidad del médico, fecha del turno, imagen del médico.
+    //sin retorno.
+    function showConfirmTurn($medicalName, $medicalSpeciality, $date, $id_turno, $imagen = null)
+    {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turno Confirmado');
         $smarty->assign('medico', $medicalName);
