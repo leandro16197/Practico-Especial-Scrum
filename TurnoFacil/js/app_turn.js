@@ -53,6 +53,7 @@ async function GetConfirmTurn(id_turn){
     let json = await recibido.json();
     //llamo a un frmulario auxiliar
     //este permite que se active una ruta del router que cambia la pantalla
+    console.log(json);
     ShowConfirmTurn(json);
   }
   catch (t) {
@@ -62,7 +63,7 @@ async function GetConfirmTurn(id_turn){
 //Esta función "ShowConfirmTurn(json)" crea un formulario auxiliar, este permite que se active una ruta del router que cambia la pantalla.
 //recibe un json, este contiene todos los datos del turno que fue confirmado
     //nombre del médico, especialidad del médico, id del turno, imagen del médico, fecha del turno
-    //email del paciente, nombre del paciente, apellido del paciente y estado de confirmación delturno.
+    //email del paciente, nombre del paciente del paciente y estado de confirmación delturno.
 //sin retorno
 function ShowConfirmTurn(json){
   //crea elemento formulario
@@ -104,11 +105,6 @@ function ShowConfirmTurn(json){
   nombrePaciente.name = "nombre_paciente";
   nombrePaciente.type = "text";
   nombrePaciente.value = json[0].nombre_paciente;
-  //crea elemento input text que guarda el apelido del paciente
-  let apellidoPaciente = document.createElement("input");
-  apellidoPaciente.name = "apellido_paciente";
-  apellidoPaciente.type = "text";
-  apellidoPaciente.value = json[0].apellido_paciente;
   //crea botón tipo submit para efectuar envio del formulario
   let btn = document.createElement("button");
   btn.id = "btn_form_confirm_turn";
@@ -122,7 +118,6 @@ function ShowConfirmTurn(json){
   form.appendChild(imagen);
   form.appendChild(mail);
   form.appendChild(nombrePaciente);
-  form.appendChild(apellidoPaciente);
   //busca el div donde se va a colocar el formulario en el DOM
   let div = document.querySelector("#div_cont_form_Confirm_turn");
   //inserta el formulario, permitiendo ser leído desde el DOM

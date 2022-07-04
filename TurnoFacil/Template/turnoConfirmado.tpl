@@ -1,3 +1,4 @@
+{include file="Template/head.tpl"}
 {include file="Template/header.tpl"}
     <h1 class="titulo">{$titulo}</h1>
     <div class = "div_turn_confirm" id="{$id_turno}">

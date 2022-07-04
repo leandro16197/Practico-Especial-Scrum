@@ -65,6 +65,22 @@ class TurnosController
 
   function eliminarTurno($id)
   {
+    $turno = $this->model->getTurnsById($id);
+
+    $medico = $turno[0]->Nombre;
+    $paciente = $turno[0]->nombre_paciente;
+    $id_turno = $turno[0]->id_turno;
+    $mail_paciente = $turno[0]->Email;
+    
+    //preparación de parámetros para enviar email
+    $to = $mail_paciente;
+    $subject = "Cancelacion de turno";
+    $message = "Sr/a " . "$paciente " . ". Se ha cancelado el turno con identificador " . "$id_turno" . " con el profesional " . "$medico";
+    $headers = "From: turnofaciltandil@gmail.com";
+    //envio del email
+    mail($to, $subject, $message, $headers);
+
+    //carga de template con datos del turno confirmado para mostrarlos por pantalla
     $this->model->deleteTurn($id);
     $this->getTurnsOfMedicalsOfSecretary();
   }
@@ -81,8 +97,7 @@ class TurnosController
 
     if (
       !empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date']) &&
-      !empty($_POST['id_turno']) && !empty($_POST['mail']) && !empty($_POST['nombre_paciente']) && !empty($_POST['apellido_paciente'])
-    ) {
+      !empty($_POST['id_turno']) && !empty($_POST['mail']) && !empty($_POST['nombre_paciente'])) {
       //guardo datos para pasarselos al view
       $medicalName = $_POST['medicalName'];
       $medicalSpeciality = $_POST['medicalSpeciality'];
@@ -92,11 +107,11 @@ class TurnosController
       //guardo datos necesarios para enviar el email
       $mailPaciente = $_POST['mail'];
       $nombrePaciente = $_POST['nombre_paciente'];
-      $apellidoPaciente = $_POST['apellido_paciente'];
+
       //preparación de parámetros para enviar email
       $to = $mailPaciente;
       $subject = "Confirmacion de turno medico";
-      $message = "Sr/a " . "$nombrePaciente " . "$apellidoPaciente" . ". Usted tiene un turno para la fecha " . "$date" . " con el profesional " . "$medicalName";
+      $message = "Sr/a " . "$nombrePaciente " . ". Usted tiene un turno para la fecha " . "$date" . " con el profesional " . "$medicalName";
       $headers = "From: turnofaciltandil@gmail.com";
       //envio del email
       mail($to, $subject, $message, $headers);

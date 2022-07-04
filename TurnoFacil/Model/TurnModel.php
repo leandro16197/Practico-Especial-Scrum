@@ -21,7 +21,7 @@ class TurnModel
     // retorna esta lista de turnos.
     function getTurnsBySecretaryId($id)
     {
-        $queryString = "SELECT m.Nombre,m.Imagen,m.Especialidad,t.fecha,p.Nombre AS'nombrePaciente',p.ObraSocial,t.dni_paciente,m.urgencia FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente  WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT m.Nombre,m.Imagen,m.Especialidad,t.fecha,t.id_turno,p.Nombre AS'nombrePaciente',p.ObraSocial,t.dni_paciente,m.urgencia FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente  WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -49,9 +49,17 @@ class TurnModel
 
     function getTurnsById($id)
     {
-        $queryString = "SELECT t.id_turno, t.fecha, m.Nombre, m.Imagen, p.Email, m.Especialidad, p.Nombre as nombre_paciente, p.apellido as apellido_paciente
+
+        /* $queryString = "SELECT t.id_turno, m.Nombre as nombre_medico, 
+                        p.Nombre as nombre_paciente, p.Email as mail_paciente
+                        FROM turno t
+                        INNER JOIN medico m ON m.id_medico = t.id_medico
+                        INNER JOIN paciente p ON p.DNI = t.dni_paciente
+                        WHERE t.id_turno = ?"; */
+
+        $queryString = "SELECT t.id_turno, t.fecha, m.Nombre, m.Imagen, p.Email, m.Especialidad, p.Nombre as nombre_paciente
                         FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico
-                        INNER JOIN paciente p ON t.dni_paciente = p.DNI WHERE id_turno = ?";
+                        INNER JOIN paciente p ON t.dni_paciente = p.DNI WHERE id_turno = ?";        
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
