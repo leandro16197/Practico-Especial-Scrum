@@ -131,20 +131,22 @@ function ShowConfirmTurn(json){
   btn.click();
 }
 
-
-
+//La funcion printInfo(trname), intercambia el contenido de los divs para poder imprimir el contenido del turno
+//recibe el id de la fila a intercambiar
+//sin retorno
 async function printInfo(trname){
+    //Se guarda la fila de la tabla
     let tr = document.getElementById(trname).innerHTML;
     console.log(document.getElementById(trname));
-
+    //Se guarda el contenido original del html
     let original = document.body.innerHTML;
     console.log(trname);
    
-
+    //Intercambia el contenido del body por la nueva fila
     document.body.innerHTML = tr
-    
+    //Llama a la funcion print() que abre el panel de impresion del browser
     window.print();
-
+    //Se intercambia nuevamente el contenido del body por el contenido original
    document.body.innerHTML = original;
   }
 
