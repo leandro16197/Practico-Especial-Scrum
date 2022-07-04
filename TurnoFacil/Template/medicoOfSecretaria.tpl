@@ -33,6 +33,10 @@
                   <p>{$turno->Nombre}</p>
                   <p>{$turno->Especialidad}</p>
                   <p id="turn_date">{$turno->fecha}</p>
+                  <p class="dato_paciente">Datos Paciente :</p>
+                  <p>{$turno->nombrePaciente}</p>
+                  <p>{$turno->dni_paciente}</p>
+                  <p>{$turno->ObraSocial}</p>
                   {if $turno->urgencia == 1}
                     <label class="table-success"><button type="button" id="{$turno->id_turno}"><a href="eliminarTurno/{$turno->id_turno}">eliminar</a></button></label>
                   {/if}
@@ -50,7 +54,7 @@
               <label>Seleccionar médico: </label>
               <select name="medico">
               {foreach from=$medicos item=medico}
-                <option value="{$medico->id_doctor}">{$medico->Nombre}</option>
+                <option value="{$medico->id_medico}">{$medico->Nombre}</option>
               {/foreach}
               </select>
             </div>

@@ -6,9 +6,6 @@
         <img src="publico/img/user_image.png" alt="Imagen no disponible" class="img-secretaria">
         <p class="nombre">Secretaria</p>
     </div>
-    <form action="{BASE_URL}viewTurnsMedicosInUrgency" method="post">
-      <button type="submit" class="btn btn-outline-danger" size="10px">Ver medicos en urgencia</button>
-    </form>
     <!--form con select para elegir un medico por nombre y filtrar vista a turnos de este---->
     <form action="{BASE_URL}viewTurnsMedicoOfSecretaria" method="post">
       <label>Seleccionar turnos de medico: </label>
@@ -46,6 +43,10 @@
                   <p>{$turno->Nombre}</p>
                   <p>{$turno->Especialidad}</p>
                   <p id="turn_date">{$turno->fecha}</p>
+                  <p class="dato_paciente">Datos Paciente :</p>
+                  <p>{$turno->nombrePaciente}</p>
+                  <p>{$turno->dni_paciente}</p>
+                  <p>{$turno->ObraSocial}</p>
                   {if $turno->urgencia == 1}
                     <label class="table-success"><button type="button" id="{$turno->id_turno}"><a href="eliminarTurno/{$turno->id_turno}">eliminar</a></button></label>
                   {/if}
@@ -63,7 +64,7 @@
               <label>Seleccionar médico: </label>
               <select name="medico">
               {foreach from=$medicos item=medico}
-                <option value="{$medico->id_doctor}">{$medico->Nombre}</option>
+                <option value="{$medico->id_medico}">{$medico->Nombre}</option>
               {/foreach}
               </select>
             </div>

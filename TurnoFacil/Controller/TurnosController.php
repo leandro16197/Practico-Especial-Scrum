@@ -17,18 +17,6 @@ class TurnosController
     $this->view->DisplayLogin();
   }
 
-  //esta función, "getViewTurnos()", muestra en pantalla de la secreataria todos los turno y formulario para crear un turno
-  //no recibe parámetros
-  //sin retorno
-  function getViewTurnos()
-  {
-    $turnos = $this->model->getTurnsOfMedical();
-    //Busca todos los médicos guardados en la base de datos, para mostrar opciones en formulario para crear un nuevo turno
-    $medicos = $this->model->getAllMedicals();
-    //llama al view para que lo muestre por pantalla
-    $this->view->turnos($turnos, $medicos);
-  }
-
   function getHome()
   {
     $Turno = $this->model->getTurnsByPatientId(11223344);
@@ -43,7 +31,7 @@ class TurnosController
   function getTurnsOfMedicalsOfSecretary()
   {
     $Turno = $this->model->getTurnsBySecretaryId(1);
-    $Medicos = $this->model->getMedicalsBySecretaryId(1);
+    $Medicos = $this->model->getAllMedicals();
     $this->view->turnos($Turno, $Medicos);
   }
 
@@ -55,7 +43,7 @@ class TurnosController
       return;
     }
     $turnos = $this->model->getTurnsByMedicalId($idMedical);
-    $medicos = $this->model->getMedicalById($idMedical);
+    $medicos = $this->model->getAllMedicals();
     $this->view->showTurnosByMedico($turnos, $medicos);
   }
 
@@ -71,25 +59,14 @@ class TurnosController
       return;
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
-    $Medico = $this->model->getMedicalById($idMedical);
+    $Medico = $this->model->getAllMedicals();
     $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
-  }
-
-  // Esta funcion "getTurnsOfMedicalsInUrgency" trae los turnos de los medicos en urgencia y
-  // estos medicos en urgencia. Luego carga devuelta la
-  // vista de turnos pero solo con los turnos y medicos en urgencia.
-  // sin retorno.
-  function getTurnsOfMedicalsInUrgency()
-  {
-    $turnos = $this->model->getTurnsInUrgency();
-    $medicos = $this->model->getMedicalsInUrgency();
-    $this->view->turnos($turnos, $medicos);
   }
 
   function eliminarTurno($id)
   {
     $this->model->deleteTurn($id);
-    $this->getViewTurnos();
+    $this->getTurnsOfMedicalsOfSecretary();
   }
 
   //Esta finción, "showConfirmTurn()", completa dos tareas

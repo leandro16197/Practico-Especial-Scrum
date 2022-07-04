@@ -6,17 +6,6 @@ class TurnModel
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=turnofacil;charset=utf8', 'root', '');
     }
-    //getTurnsOfMedical()
-    //trae todos los turnos de la base de datos
-    // y los retorna
-    function getTurnsOfMedical()
-    {
-        $queryString = "SELECT * FROM turno t inner join medico m on m.id_medico=t.id_medico";
-        $query = $this->db->prepare($queryString);
-        $query->execute();
-        $turns = $query->fetchAll(PDO::FETCH_OBJ);
-        return $turns;
-    }
     function getTurnsByPatientId($id)
     {
         $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY t.fecha";
@@ -32,7 +21,7 @@ class TurnModel
     // retorna esta lista de turnos.
     function getTurnsBySecretaryId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT m.Nombre,m.Imagen,m.Especialidad,t.fecha,t.id_turno,p.Nombre AS'nombrePaciente',p.ObraSocial,t.dni_paciente,m.urgencia FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente  WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -41,21 +30,9 @@ class TurnModel
 
     function getTurnsByMedicalId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT t.*,m.*,p.Nombre AS 'nombrePaciente', p.ObraSocial FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
-        $turns = $query->fetchAll(PDO::FETCH_OBJ);
-        return $turns;
-    }
-
-    // funcion "getTurnsInUrgency()"
-    // busca en la base de datos los turnos donde el medico este en urgencia
-    // retorna la lista de turnos obtenida anteriormente
-    function getTurnsInUrgency()
-    {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.urgencia = 1 GROUP BY id_turno ORDER BY t.fecha";
-        $query = $this->db->prepare($queryString);
-        $query->execute();
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
         return $turns;
     }
@@ -69,18 +46,6 @@ class TurnModel
         return $turns;
     }
 
-    // funcion "getMedicalsBySecretaryId($id)"
-    // busca en la base de datos los turnos donde el medico tenga el id_secretaria
-    // recibido por parametro
-    // retorna la lista de turnos obtenida anteriormente
-    function getMedicalsBySecretaryId($id)
-    {
-        $queryString = "SELECT DISTINCT m.Nombre, t.id_medico FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY m.nombre";
-        $query = $this->db->prepare($queryString);
-        $query->execute(array($id));
-        $turns = $query->fetchAll(PDO::FETCH_OBJ);
-        return $turns;
-    }
 
     function getTurnsById($id)
     {
@@ -102,19 +67,6 @@ class TurnModel
         return $turns;
     }
 
-    //Esta función, "getMedicalsInUrgency()", busca en la base de datos todos los médicos cargados
-    // que esten en urgencia
-    //No recibe parámetros
-    //retorna todos los médicos seleccionados anterioremente
-
-    function getMedicalsInUrgency()
-    {
-        $queryString = "SELECT * FROM medico m WHERE m.urgencia = 1 ORDER BY m.nombre";
-        $query = $this->db->prepare($queryString);
-        $query->execute();
-        $turns = $query->fetchAll(PDO::FETCH_OBJ);
-        return $turns;
-    }
     //Esta función, "getAllMedicals()", busca en la base de datos todos los médicos cargados
     //No recibe parámetros
     //retorna todos los médicos guardados en la base de datos
@@ -126,6 +78,7 @@ class TurnModel
         $medicals = $query->fetchAll(PDO::FETCH_OBJ);
         return $medicals;
     }
+
     //Esta función, "confirmTurn($id)", cambia en la base de datos el estado de confirmación de un turno en específico.
     //lo cambia de no confirmado a confirmado.
     //parametro que recibe: id del turno a cambiar confirmación.
@@ -136,6 +89,9 @@ class TurnModel
         $query = $this->db->prepare($queryString);
         $query->execute(array(1, $id));
     }
+    //Esta function, "deleteTurn($id)", elimina el turno de un paciente, ya que el medico entra en urgencias.
+    //parametro que recibe:id del turno del paciente
+    //sin retorno
     function deleteTurn($id)
     {
         $queryString = "DELETE FROM turno WHERE id_turno = ?";
