@@ -99,6 +99,9 @@ class TurnModel
         $query = $this->db->prepare($queryString);
         $query->execute(array(1, $id));
     }
+    //Esta function, "deleteTurn($id)", elimina el turno de un paciente, ya que el medico entra en urgencias.
+    //parametro que recibe:id del turno del paciente
+    //sin retorno
     function deleteTurn($id)
     {
         $queryString = "DELETE FROM turno WHERE id_turno = ?";
