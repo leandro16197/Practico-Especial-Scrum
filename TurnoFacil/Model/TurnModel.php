@@ -68,14 +68,14 @@ class TurnModel
         return $turns;
     }
 
-    //Esta función, "getAllMedicals()", busca en la base de datos todos los médicos cargados
-    //No recibe parámetros
+    //Esta función, "getAllMedicalsOfSecretary($id_secretary)", busca en la base de datos todos los médicos cargados
+    //Recibe como parámetro el id_secretary, este es el identificador de la secretaria que filtra los médicos que se trae de a base de datos.
     //retorna todos los médicos guardados en la base de datos
-    function getAllMedicals()
+    function getAllMedicalsOfSecretary($id_secretary)
     {
-        $queryString = "SELECT * FROM medico";
+        $queryString = "SELECT * FROM medico WHERE id_secretaria = ?";
         $query = $this->db->prepare($queryString);
-        $query->execute();
+        $query->execute(array($id_secretary));
         $medicals = $query->fetchAll(PDO::FETCH_OBJ);
         return $medicals;
     }

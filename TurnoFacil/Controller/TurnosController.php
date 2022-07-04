@@ -31,7 +31,7 @@ class TurnosController
   function getTurnsOfMedicalsOfSecretary()
   {
     $Turno = $this->model->getTurnsBySecretaryId(1);
-    $Medicos = $this->model->getAllMedicals();
+    $Medicos = $this->model->getAllMedicalsOfSecretary(1);
     $this->view->turnos($Turno, $Medicos);
   }
 
@@ -59,7 +59,7 @@ class TurnosController
       return;
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
-    $Medico = $this->model->getAllMedicals();
+    $Medico = $this->model->getAllMedicalsOfSecretary(1);
     $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
   }
 
