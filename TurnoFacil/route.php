@@ -31,9 +31,9 @@ switch ($params[0]) {
         $TurnosController->getTurnsOfMedicalOfSecretary();
         break;
     case 'eliminarTurno':
-        $TurnosController->eliminarTurno($params[1]);
+        $TurnosController->deleteTurn($params[1]);
         break;
     default:
-        $TurnosController->getHome();
+        $TurnosController->getHomePacient();
         break;
 }
