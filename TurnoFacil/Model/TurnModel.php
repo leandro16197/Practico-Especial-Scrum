@@ -136,6 +136,8 @@ class TurnModel
         $query = $this->db->prepare($queryString);
         $query->execute(array(1, $id));
     }
+    //deleteTurn($id)
+    //borra un turno seleccionado por la secretaria
     function deleteTurn($id)
     {
         $queryString = "DELETE FROM turno WHERE id_turno = ?";

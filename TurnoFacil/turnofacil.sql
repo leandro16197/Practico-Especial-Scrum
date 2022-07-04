@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 03, 2022 at 09:53 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-07-2022 a las 18:24:09
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,17 +33,16 @@ CREATE TABLE `medico` (
   `Especialidad` varchar(30) NOT NULL,
   `Imagen` mediumblob DEFAULT NULL,
   `Obras_sociales` varchar(50) NOT NULL,
-  `urgencia` int(11) NOT NULL DEFAULT 0,
-  `id_secretaria` int(11) DEFAULT NULL
+  `urgencia` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `medico`
 --
 
-INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`, `id_secretaria`) VALUES
-(2, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1, 1),
-(4, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0, 1);
+INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`) VALUES
+(1, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1),
+(2, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0);
 
 -- --------------------------------------------------------
 
@@ -105,13 +104,8 @@ CREATE TABLE `turno` (
 -- Dumping data for table `turno`
 --
 
-INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
-(8, 11223344, 2, '2022-05-19 18:26:52', 1),
-(9, 11223344, 4, '2022-05-07 18:26:52', 1),
-(10, 11223344, 4, '2022-05-22 20:07:24', 1),
-(11, 11223344, 4, '2025-05-07 15:25:18', 1),
-(12, 11223344, 2, '2022-05-19 16:36:59', 0),
-(13, 11223344, 2, '2022-05-28 16:36:59', 1);
+INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_doctor`, `fecha`, `confirmado`) VALUES
+(8, 11223344, 2, '2022-05-19 18:26:52', 1);
 
 --
 -- Indexes for dumped tables
