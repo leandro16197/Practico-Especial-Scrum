@@ -17,18 +17,6 @@ class TurnosController
     $this->view->DisplayLogin();
   }
 
-  //esta función, "getViewTurnos()", muestra en pantalla de la secreataria todos los turno y formulario para crear un turno
-  //no recibe parámetros
-  //sin retorno
-  function getViewTurnos()
-  {
-    $turnos = $this->model->getTurnsOfMedical();
-    //Busca todos los médicos guardados en la base de datos, para mostrar opciones en formulario para crear un nuevo turno
-    $medicos = $this->model->getAllMedicals();
-    //llama al view para que lo muestre por pantalla
-    $this->view->turnos($turnos, $medicos);
-  }
-
   function getHome()
   {
     $Turno = $this->model->getTurnsByPatientId(11223344);
@@ -78,7 +66,7 @@ class TurnosController
   function eliminarTurno($id)
   {
     $this->model->deleteTurn($id);
-    $this->getViewTurnos();
+    $this->getTurnsOfMedicalsOfSecretary();
   }
 
   //Esta finción, "showConfirmTurn()", completa dos tareas
