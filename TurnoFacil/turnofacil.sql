@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2022 a las 18:24:09
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.11
-=======
--- Host: 127.0.0.1
--- Generation Time: Jul 03, 2022 at 09:56 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
->>>>>>> master
+-- Tiempo de generación: 04-07-2022 a las 22:15:43
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,47 +19,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `turnofacil`
+-- Base de datos: `turnofacil`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medico`
+-- Estructura de tabla para la tabla `medico`
 --
 
 CREATE TABLE `medico` (
   `id_medico` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Especialidad` varchar(30) NOT NULL,
-  `Imagen` mediumblob DEFAULT NULL,
+  `Imagen` mediumblob,
   `Obras_sociales` varchar(50) NOT NULL,
-<<<<<<< HEAD
-  `urgencia` int(1) NOT NULL
-=======
-  `urgencia` int(11) NOT NULL DEFAULT 0,
+  `urgencia` int(11) NOT NULL DEFAULT '0',
   `id_secretaria` int(11) DEFAULT NULL
->>>>>>> master
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `medico`
+-- Volcado de datos para la tabla `medico`
 --
 
-<<<<<<< HEAD
-INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`) VALUES
-(1, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1),
-(2, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0);
-=======
 INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`, `id_secretaria`) VALUES
 (2, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1, 1),
 (4, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0, 1);
->>>>>>> master
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente`
+-- Estructura de tabla para la tabla `paciente`
 --
 
 CREATE TABLE `paciente` (
@@ -74,21 +58,21 @@ CREATE TABLE `paciente` (
   `Direccion` varchar(50) NOT NULL,
   `Telefono` varchar(30) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `Obra social` varchar(10) NOT NULL,
-  `Numero de afiliado` int(20) NOT NULL
+  `ObraSocial` varchar(10) NOT NULL,
+  `NumeroAfiliado` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `paciente`
+-- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`DNI`, `Nombre`, `Direccion`, `Telefono`, `Email`, `Obra social`, `Numero de afiliado`) VALUES
+INSERT INTO `paciente` (`DNI`, `Nombre`, `Direccion`, `Telefono`, `Email`, `ObraSocial`, `NumeroAfiliado`) VALUES
 (11223344, 'Juan Perez', 'Durruti 1200', '0800 112233', 'JuanPerez@hotmail.com', 'PAMI', 15388954);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `secretaria`
+-- Estructura de tabla para la tabla `secretaria`
 --
 
 CREATE TABLE `secretaria` (
@@ -98,7 +82,7 @@ CREATE TABLE `secretaria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `secretaria`
+-- Volcado de datos para la tabla `secretaria`
 --
 
 INSERT INTO `secretaria` (`id_secretaria`, `nombre`, `email`) VALUES
@@ -107,7 +91,7 @@ INSERT INTO `secretaria` (`id_secretaria`, `nombre`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `turno`
+-- Estructura de tabla para la tabla `turno`
 --
 
 CREATE TABLE `turno` (
@@ -119,13 +103,9 @@ CREATE TABLE `turno` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `turno`
+-- Volcado de datos para la tabla `turno`
 --
 
-<<<<<<< HEAD
-INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_doctor`, `fecha`, `confirmado`) VALUES
-(8, 11223344, 2, '2022-05-19 18:26:52', 1);
-=======
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1),
 (9, 11223344, 4, '2022-05-07 18:26:52', 1),
@@ -133,57 +113,56 @@ INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirma
 (11, 11223344, 4, '2025-05-07 15:25:18', 1),
 (12, 11223344, 2, '2022-05-19 16:36:59', 0),
 (13, 11223344, 2, '2022-05-28 16:36:59', 1);
->>>>>>> master
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `medico`
+-- Indices de la tabla `medico`
 --
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`id_medico`),
   ADD KEY `id_medico` (`id_medico`);
 
 --
--- Indexes for table `paciente`
+-- Indices de la tabla `paciente`
 --
 ALTER TABLE `paciente`
   ADD PRIMARY KEY (`DNI`),
   ADD KEY `DNI` (`DNI`);
 
 --
--- Indexes for table `secretaria`
+-- Indices de la tabla `secretaria`
 --
 ALTER TABLE `secretaria`
   ADD PRIMARY KEY (`id_secretaria`);
 
 --
--- Indexes for table `turno`
+-- Indices de la tabla `turno`
 --
 ALTER TABLE `turno`
   ADD PRIMARY KEY (`id_turno`),
   ADD KEY `id_turno` (`id_turno`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `medico`
+-- AUTO_INCREMENT de la tabla `medico`
 --
 ALTER TABLE `medico`
   MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `secretaria`
+-- AUTO_INCREMENT de la tabla `secretaria`
 --
 ALTER TABLE `secretaria`
   MODIFY `id_secretaria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `turno`
+-- AUTO_INCREMENT de la tabla `turno`
 --
 ALTER TABLE `turno`
   MODIFY `id_turno` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
