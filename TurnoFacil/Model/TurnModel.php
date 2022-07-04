@@ -6,24 +6,14 @@ class TurnModel
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=turnofacil;charset=utf8', 'root', '');
     }
-    //getTurnsOfMedical()
-    //trae todos los turnos de la base de datos
-    // y los retorna
-    function getTurnsOfMedical()
-    {
-        $queryString = "SELECT * FROM turno t inner join medico m on m.id_medico=t.id_medico";
-        $query = $this->db->prepare($queryString);
-        $query->execute();
-        $turns = $query->fetchAll(PDO::FETCH_OBJ);
-        return $turns;
-    }
-    function getTurnsByPatientId($id)
+      function getTurnsByPatientId($id)
     {
         $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE t.dni_paciente = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
         return $turns;
+
     }
 
     // la funcion "getTurnsBySecretaryId($id)"
@@ -32,7 +22,7 @@ class TurnModel
     // retorna esta lista de turnos.
     function getTurnsBySecretaryId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT m.Nombre,m.Imagen,m.Especialidad,t.fecha,p.Nombre AS'nombrePaciente',p.ObraSocial,t.dni_paciente,m.urgencia FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente  WHERE m.id_secretaria = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);

@@ -2,7 +2,7 @@
     <h1 class="titulo">{$titulo}</h1>
     <form action="{BASE_URL}verTurnosMedico" method="post">
     </form>
-     <div class="secretaria">
+    <div class="secretaria">
         <img src="publico/img/user_image.png" alt="Imagen no disponible" class="img-secretaria">
         <p class="nombre">Secretaria</p>
     </div>
@@ -46,7 +46,10 @@
                   <p>{$turno->Nombre}</p>
                   <p>{$turno->Especialidad}</p>
                   <p id="turn_date">{$turno->fecha}</p>
-                   <!--Si el medico entra en urgencia, aparece el boton "eliminar" en la vista de la secretaria-->
+                  <p class="dato_paciente">Datos Paciente :</p>
+                  <p>{$turno->nombrePaciente}</p>
+                  <p>{$turno->dni_paciente}</p>
+                  <p>{$turno->ObraSocial}</p>
                   {if $turno->urgencia == 1}
                     <label class="table-success"><button type="button" id="{$turno->id_turno}"><a href="eliminarTurno/{$turno->id_turno}">eliminar</a></button></label>
                   {/if}
