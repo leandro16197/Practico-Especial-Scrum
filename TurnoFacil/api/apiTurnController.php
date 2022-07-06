@@ -36,9 +36,28 @@ class ApiTurnController
         $this->view->response($turns, 200);
     }
 
-    public function getTurnsById($params = null){
-        $id_turno = $params[':ID_TURNO'];
-        $turns = $this->model->getTurnsById($id_turno);
-        $this->view->response($turns, 200);
+    public function createTurnBySecretary()
+    {
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $formData = json_decode($this->data);
+        $id_medico = $formData->id_medico;
+        $fecha = $formData->fecha;
+        $inicio = $formData->fecha_inicio;
+        $fin = $formData->fecha_fin;
+
+        $fechaTurno = "$fecha $inicio";
+        $aux = 0;
+        $time1 = explode(':', $inicio);
+        $hours1 = intval($time1[0]);
+        $time2 = explode(':', $fin);
+        $hours2 = intval($time2[0]);
+        $cant = $hours2 - $hours1;
+
+        for ($i = 0; $i < $cant; $i++) {
+            $hours1++;
+            $increment = "$hours1:$time1[1]";
+            $fechaTurno = "$fecha $increment";
+            $this->model->createTurnBySecretary($id_medico, $fechaTurno);
+        }
     }
 }

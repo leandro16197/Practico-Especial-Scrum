@@ -17,11 +17,11 @@ class TurnosController
     $this->view->DisplayLogin();
   }
 
-  function getHome()
+  function getHomePacient()
   {
     $Turno = $this->model->getTurnsByPatientId(11223344);
     $Medicos = $this->model->getMedicalsByPatientId(11223344);
-    $this->view->showTurnos($Turno, $Medicos);
+    $this->view->showTurnosPacient($Turno, $Medicos);
   }
 
   //esta función, "getTurnsOfMedicalsOfSecretary()", muestra en pantalla de la secreataria todos los turnos de los medicos que administra y formulario para crear un turno
@@ -31,8 +31,8 @@ class TurnosController
   function getTurnsOfMedicalsOfSecretary()
   {
     $Turno = $this->model->getTurnsBySecretaryId(1);
-    $Medicos = $this->model->getAllMedicalsOfSecretary(1);
-    $this->view->turnos($Turno, $Medicos);
+    $Medicos = $this->model->getAllMedicals();
+    $this->view->showTurnsSecretary($Turno, $Medicos);
   }
 
   function getTurnsOfMedical()
@@ -43,8 +43,8 @@ class TurnosController
       return;
     }
     $turnos = $this->model->getTurnsByMedicalId($idMedical);
-    $medicos = $this->model->getMedicalById($idMedical);
-    $this->view->showTurnosByMedico($turnos, $medicos);
+    $medicos = $this->model->getAllMedicals();
+    $this->view->showTurnosByMedic($turnos, $medicos);
   }
 
   // Esta funcion "getTurnsOfMedicalOfSecretary" trae los turnos del medico elegido en el select,
@@ -59,11 +59,11 @@ class TurnosController
       return;
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
-    $Medico = $this->model->getAllMedicalsOfSecretary(1);
-    $this->view->showTurnosByMedicoOfSecretary($Turno, $Medico);
+    $Medico = $this->model->getAllMedicals();
+    $this->view->showTurnosByMedicOfSecretary($Turno, $Medico);
   }
 
-  function eliminarTurno($id)
+  function deleteTurn($id)
   {
     $turno = $this->model->getTurnsById($id);
 

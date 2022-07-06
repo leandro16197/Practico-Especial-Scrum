@@ -3,50 +3,82 @@
 
 //let id_paciente = 11223344;
 
-document.addEventListener("DOMContentLoaded", function(){
-    //GetTurns(id_paciente);
-    try{
-      //agrega funcionalidad de confirmar turno a botones
-      let btn_confirm = document.querySelectorAll(".btn_confirm");
-      btn_confirm.forEach(btn => {
-        btn.addEventListener('click', function(e){
-          e.preventDefault();
-          //si el botón es clickeado esta función se ejecuta
-          ConfirmTurn(btn.id);
-        });
+document.addEventListener("DOMContentLoaded", function (e) {
+  //GetTurns(id_paciente);
+  try {
+    //agrega funcionalidad de confirmar turno a botones
+    let btn_confirm = document.querySelectorAll(".btn_confirm");
+    btn_confirm.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        //si el botón es clickeado esta función se ejecuta
+        ConfirmTurn(btn.id);
       });
-    }catch(error){}
-  try{
+    });
+  } catch (error) { }
+  try {
     let btn_print = document.querySelectorAll(".btn_print");
     btn_print.forEach(btn => {
-      btn.addEventListener('click', function(e){
+      btn.addEventListener('click', function (e) {
         e.preventDefault();
         printInfo(btn.id);
       });
     });
-  }catch(error){}
+  } catch (error) { }
+
+  let form = document.getElementById("form_agregar_turno");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault()
+      createTurn(form)
+    })
+  }
+
 });
+
+async function createTurn(form) {
+  let data = new FormData(form);
+  let turn = {
+    id_medico: data.get("medico"),
+    fecha: data.get("turnDate"),
+    fecha_inicio: data.get("turnBeginning"),
+    fecha_fin: data.get("turnEnd")
+  };
+  console.log(turn)
+  try {
+    await fetch('api/createTurnBySecretary/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(turn)
+    })
+  }
+  catch (t) {
+    console.log(t);
+  }
+}
 
 //Esta función "ConfirmTurn(id_turn)" confirna un turno en específico
 //recibe el id del turno a confirmar
 //sin retorno
-async function ConfirmTurn(id_turn){
+async function ConfirmTurn(id_turn) {
   try {
     //modifica la base de datos, confirmando el turno
-    await fetch('api/confirmarTurno/'+id_turn, {
+    await fetch('api/confirmarTurno/' + id_turn, {
       "method": 'POST',
-      "headers": { "Content-Type": "application/json"},
+      "headers": { "Content-Type": "application/json" },
     });
     //cambio de pantalla, mostrando detalles del turno confirmado
     GetConfirmTurn(id_turn);
-    }
+  }
   catch (t) {
     console.log(t);
   }
 }
 //Esta función "GetConfirmTurn(id_turn)" muestra por pantalla un turno confirmado, luego de que este fue confirmado
 //Recibe "id_turn", este es el id de un turno en específico
-async function GetConfirmTurn(id_turn){
+async function GetConfirmTurn(id_turn) {
   try {
     //consulta la base de datos para obtener los datos del turno confrimado
     let recibido = await fetch('api/turnoConfirmado/' + id_turn);
@@ -65,7 +97,7 @@ async function GetConfirmTurn(id_turn){
     //nombre del médico, especialidad del médico, id del turno, imagen del médico, fecha del turno
     //email del paciente, nombre del paciente del paciente y estado de confirmación delturno.
 //sin retorno
-function ShowConfirmTurn(json){
+function ShowConfirmTurn(json) {
   //crea elemento formulario
   let form = document.createElement("form");
   form.action = "verTurnoConfirmado";
@@ -108,7 +140,7 @@ function ShowConfirmTurn(json){
   //crea botón tipo submit para efectuar envio del formulario
   let btn = document.createElement("button");
   btn.id = "btn_form_confirm_turn";
-  btn.type="submit";
+  btn.type = "submit";
   //inserta inputs y el botón prebiamente creado en el formulario
   form.appendChild(medicalName);
   form.appendChild(medicalSpeciality);
@@ -126,20 +158,22 @@ function ShowConfirmTurn(json){
   btn.click();
 }
 
+//La funcion printInfo(trname), intercambia el contenido de los divs para poder imprimir el contenido del turno
+//recibe el id de la fila a intercambiar
+//sin retorno
+async function printInfo(trname) {
+  //Se guarda la fila de la tabla
+  let tr = document.getElementById(trname).innerHTML;
+  console.log(document.getElementById(trname));
+  //Se guarda el contenido original del html
+  let original = document.body.innerHTML;
+  console.log(trname);
 
-
-async function printInfo(trname){
-    let tr = document.getElementById(trname).innerHTML;
-    console.log(document.getElementById(trname));
-
-    let original = document.body.innerHTML;
-    console.log(trname);
-   
-
-    document.body.innerHTML = tr
-    
-    window.print();
-
-   document.body.innerHTML = original;
-  }
+  //Intercambia el contenido del body por la nueva fila
+  document.body.innerHTML = tr
+  //Llama a la funcion print() que abre el panel de impresion del browser
+  window.print();
+  //Se intercambia nuevamente el contenido del body por el contenido original
+  document.body.innerHTML = original;
+}
 

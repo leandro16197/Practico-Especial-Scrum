@@ -30,7 +30,7 @@ class TurnModel
 
     function getTurnsByMedicalId($id)
     {
-        $queryString = "SELECT * FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
+        $queryString = "SELECT t.*,m.*,p.Nombre AS 'nombrePaciente', p.ObraSocial FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico JOIN paciente p on p.DNI=t.dni_paciente WHERE m.id_medico = ? GROUP BY id_turno ORDER BY t.fecha";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -75,17 +75,18 @@ class TurnModel
         return $turns;
     }
 
-    //Esta función, "getAllMedicalsOfSecretary($id_secretary)", busca en la base de datos todos los médicos cargados
-    //Recibe como parámetro el id_secretary, este es el identificador de la secretaria que filtra los médicos que se trae de a base de datos.
+    //Esta función, "getAllMedicals()", busca en la base de datos todos los médicos cargados
+    //No recibe parámetros
     //retorna todos los médicos guardados en la base de datos
-    function getAllMedicalsOfSecretary($id_secretary)
+    function getAllMedicals()
     {
-        $queryString = "SELECT * FROM medico WHERE id_secretaria = ?";
+        $queryString = "SELECT * FROM medico";
         $query = $this->db->prepare($queryString);
-        $query->execute(array($id_secretary));
+        $query->execute();
         $medicals = $query->fetchAll(PDO::FETCH_OBJ);
         return $medicals;
     }
+
     //Esta función, "confirmTurn($id)", cambia en la base de datos el estado de confirmación de un turno en específico.
     //lo cambia de no confirmado a confirmado.
     //parametro que recibe: id del turno a cambiar confirmación.
@@ -104,5 +105,12 @@ class TurnModel
         $queryString = "DELETE FROM turno WHERE id_turno = ?";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
+    }
+
+    function createTurnBySecretary($id_medico, $fecha)
+    {
+        $queryString = "INSERT INTO turno(id_medico, fecha, confirmado) VALUES (?,?,?)";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id_medico, $fecha, 0));
     }
 }

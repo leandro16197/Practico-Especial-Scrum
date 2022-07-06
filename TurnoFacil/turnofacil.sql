@@ -7,6 +7,7 @@
 -- Tiempo de generación: 04-07-2022 a las 22:15:43
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 -- Servidor: 127.0.0.1
@@ -20,6 +21,8 @@
 -- PHP Version: 8.0.6
 >>>>>>> master
 >>>>>>> master
+=======
+>>>>>>> 498b6f89235ecc2d32997e61712d1ff99595cb09
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,6 +52,7 @@ CREATE TABLE `medico` (
   `Imagen` mediumblob,
   `Obras_sociales` varchar(50) NOT NULL,
 <<<<<<< HEAD
+<<<<<<< HEAD
   `urgencia` int(11) NOT NULL DEFAULT '0',
   `id_secretaria` int(11) DEFAULT NULL
 =======
@@ -59,12 +63,17 @@ CREATE TABLE `medico` (
   `id_secretaria` int(11) DEFAULT NULL
 >>>>>>> master
 >>>>>>> master
+=======
+  `urgencia` int(11) NOT NULL DEFAULT '0',
+  `id_secretaria` int(11) DEFAULT NULL
+>>>>>>> 498b6f89235ecc2d32997e61712d1ff99595cb09
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `medico`
 --
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`) VALUES
 (1, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1),
@@ -80,6 +89,11 @@ INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_so
 (4, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0, 1);
 >>>>>>> master
 >>>>>>> master
+=======
+INSERT INTO `medico` (`id_medico`, `Nombre`, `Especialidad`, `Imagen`, `Obras_sociales`, `urgencia`, `id_secretaria`) VALUES
+(2, 'Martina Garcia', 'Psicologa', NULL, 'IOMA', 1, 1),
+(4, 'Juan Lopez', 'Psicologo', NULL, 'PAMI,OSPEDIC', 0, 1);
+>>>>>>> 498b6f89235ecc2d32997e61712d1ff99595cb09
 
 -- --------------------------------------------------------
 
@@ -131,7 +145,7 @@ INSERT INTO `secretaria` (`id_secretaria`, `nombre`, `email`) VALUES
 
 CREATE TABLE `turno` (
   `id_turno` int(10) NOT NULL,
-  `dni_paciente` int(11) NOT NULL,
+  `dni_paciente` int(11) DEFAULT NULL,
   `id_medico` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `confirmado` tinyint(1) NOT NULL
@@ -142,6 +156,7 @@ CREATE TABLE `turno` (
 --
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1);
 =======
@@ -149,6 +164,8 @@ INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirma
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_doctor`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1);
 =======
+=======
+>>>>>>> 498b6f89235ecc2d32997e61712d1ff99595cb09
 INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirmado`) VALUES
 (8, 11223344, 2, '2022-05-19 18:26:52', 1),
 (9, 11223344, 4, '2022-05-07 18:26:52', 1),
@@ -156,8 +173,11 @@ INSERT INTO `turno` (`id_turno`, `dni_paciente`, `id_medico`, `fecha`, `confirma
 (11, 11223344, 4, '2025-05-07 15:25:18', 1),
 (12, 11223344, 2, '2022-05-19 16:36:59', 0),
 (13, 11223344, 2, '2022-05-28 16:36:59', 1);
+<<<<<<< HEAD
 >>>>>>> master
 >>>>>>> master
+=======
+>>>>>>> 498b6f89235ecc2d32997e61712d1ff99595cb09
 
 --
 -- Índices para tablas volcadas

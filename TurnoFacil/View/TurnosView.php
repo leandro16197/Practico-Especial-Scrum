@@ -14,7 +14,9 @@ class TurnosView
         $smarty->assign('titulo', "Login");
         $smarty->display('Template/login.tpl');
     }
-
+    //turnos($turnos,$medicos)
+    //esta funcion recibe una lista de turnos y medicos 
+    //carga el template con los turnos venideros de la Base de Datos
     function turnos($turnos, $medicos)
     {
         $smarty = new Smarty();
@@ -23,7 +25,7 @@ class TurnosView
         $smarty->assign('medicos', $medicos);
         $smarty->display('Template/secretaria.tpl');
     }
-    function showTurnos($Turnos, $Medicos)
+    function showTurnosPacient($Turnos, $Medicos)
     {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turno Disponibles');
@@ -32,7 +34,7 @@ class TurnosView
         $smarty->display('Template/turnos.tpl');
     }
 
-    function showTurnosByMedico($turnos, $medicos)
+    function showTurnosByMedic($turnos, $medicos)
     {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Turnos De Medico');
@@ -45,7 +47,7 @@ class TurnosView
     // carga el template que muestra los turnos del medico filtrado
     // sin retorno
 
-    function showTurnosByMedicoOfSecretary($turnos, $medicos)
+    function showTurnosByMedicOfSecretary($turnos, $medicos)
     {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Administracion de Turnos');

@@ -58,19 +58,24 @@
       </div>
       <!--Div contenedor de formulario para cargar un turno-->
       <div class="contenedor_formulario_agregar_turno">
-        <form class="form_agregar_turno" action="{BASE_URL}verTurnosMedico" method="post">
+        <form class="form_agregar_turno" id="form_agregar_turno" >
           <legend>Cargar turno</legend>
-            <div class="div_select_medicos">
               <label>Seleccionar médico: </label>
               <select name="medico">
               {foreach from=$medicos item=medico}
                 <option value="{$medico->id_medico}">{$medico->Nombre}</option>
               {/foreach}
               </select>
-            </div>
-          <button type="submit">Cargar</button>
+
+              <label>Fecha: </label>
+              <input type="date" id = "turnDate" name = "turnDate">
+
+              <label>Inicio disponibilidad: </label>
+              <input type="time" id = "turnBeginning" name = "turnBeginning">
+              <label>Fin disponibilidad: </label>
+              <input type="time" id = "turnEnd" name = "turnEnd">
+          <button type="submit" name = "enviar">Cargar</button>
         </form>
-      </div>
     </div>
     <!--Div contenedor de formulario auxiliar para confirmar un turno-->
     <div class="div_cont_form_Confirm_turn" id="div_cont_form_Confirm_turn" style="display:none"></div>
