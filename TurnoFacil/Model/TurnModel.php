@@ -98,4 +98,11 @@ class TurnModel
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
     }
+
+    function createTurnBySecretary($id_medico, $fecha)
+    {
+        $queryString = "INSERT INTO turno(id_medico, fecha, confirmado) VALUES (?,?,?)";
+        $query = $this->db->prepare($queryString);
+        $query->execute(array($id_medico, $fecha, 0));
+    }
 }
