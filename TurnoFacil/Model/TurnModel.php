@@ -50,7 +50,7 @@ class TurnModel
     function getTurnsById($id)
     {
 
-        /* $queryString = "SELECT t.id_turno, m.Nombre as nombre_medico, 
+        /* $queryString = "SELECT t.id_turno, m.Nombre as nombre_medico,
                         p.Nombre as nombre_paciente, p.Email as mail_paciente
                         FROM turno t
                         INNER JOIN medico m ON m.id_medico = t.id_medico
@@ -59,7 +59,7 @@ class TurnModel
 
         $queryString = "SELECT t.id_turno, t.fecha, m.Nombre, m.Imagen, p.Email, m.Especialidad, p.Nombre as nombre_paciente
                         FROM turno t INNER JOIN medico m ON m.id_medico = t.id_medico
-                        INNER JOIN paciente p ON t.dni_paciente = p.DNI WHERE id_turno = ?";        
+                        INNER JOIN paciente p ON t.dni_paciente = p.DNI WHERE id_turno = ?";
         $query = $this->db->prepare($queryString);
         $query->execute(array($id));
         $turns = $query->fetchAll(PDO::FETCH_OBJ);
@@ -107,6 +107,9 @@ class TurnModel
         $query->execute(array($id));
     }
 
+    //Esta function, "createTurnBySecretary($id_medico, $fecha)", crea un turno en la DB
+    //parametros que recibe:id del medio y fecha
+    //sin retorno
     function createTurnBySecretary($id_medico, $fecha)
     {
         $queryString = "INSERT INTO turno(id_medico, fecha, confirmado) VALUES (?,?,?)";

@@ -8,6 +8,8 @@ class TurnosView
     {
     }
 
+    //DisplayLogin()
+    //esta funcion muestra el login para elegir si ingresar como paciente o secretaria
     public function DisplayLogin()
     {
         $smarty = new Smarty();

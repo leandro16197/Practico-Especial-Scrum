@@ -36,6 +36,9 @@ class ApiTurnController
         $this->view->response($turns, 200);
     }
 
+    //esta función, "createTurnBySecretary()", crea un turno en la base de datos segun los datos enviados por el form
+    //sin retorno
+
     public function createTurnBySecretary()
     {
         date_default_timezone_set('America/Argentina/Buenos_Aires');

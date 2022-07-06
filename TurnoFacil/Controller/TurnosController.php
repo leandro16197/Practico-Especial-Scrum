@@ -63,6 +63,9 @@ class TurnosController
     $this->view->turnos($Turno, $Medico);
   }
 
+  //Esta función, "deleteTurn($id)", obtiene el turno a eliminar con el id(pasado por parametro) de este desde la DB
+  // y luego obtiene sus datos para mandarlos con el mail al paciente, informandole de su cancelacion
+  //sin retorno
   function deleteTurn($id)
   {
     $turno = $this->model->getTurnsById($id);
