@@ -60,7 +60,7 @@ class TurnosController
     }
     $Turno = $this->model->getTurnsByMedicalId($idMedical);
     $Medico = $this->model->getAllMedicals();
-    $this->view->showTurnosByMedicOfSecretary($Turno, $Medico);
+    $this->view->turnos($Turno, $Medico);
   }
 
   function deleteTurn($id)
@@ -71,7 +71,7 @@ class TurnosController
     $paciente = $turno[0]->nombre_paciente;
     $id_turno = $turno[0]->id_turno;
     $mail_paciente = $turno[0]->Email;
-    
+
     //preparación de parámetros para enviar email
     $to = $mail_paciente;
     $subject = "Cancelacion de turno";
@@ -97,7 +97,8 @@ class TurnosController
 
     if (
       !empty($_POST['medicalName']) && !empty($_POST['medicalSpeciality']) && !empty($_POST['date']) &&
-      !empty($_POST['id_turno']) && !empty($_POST['mail']) && !empty($_POST['nombre_paciente'])) {
+      !empty($_POST['id_turno']) && !empty($_POST['mail']) && !empty($_POST['nombre_paciente'])
+    ) {
       //guardo datos para pasarselos al view
       $medicalName = $_POST['medicalName'];
       $medicalSpeciality = $_POST['medicalSpeciality'];
