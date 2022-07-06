@@ -96,7 +96,7 @@ INSERT INTO `secretaria` (`id_secretaria`, `nombre`, `email`) VALUES
 
 CREATE TABLE `turno` (
   `id_turno` int(10) NOT NULL,
-  `dni_paciente` int(11) NOT NULL,
+  `dni_paciente` int(11) DEFAULT NULL,
   `id_medico` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `confirmado` tinyint(1) NOT NULL
