@@ -36,6 +36,13 @@ class ApiTurnController
         $this->view->response($turns, 200);
     }
 
+    public function getTurnsById($params = null)
+    {
+        $id_turno = $params[':ID_TURNO'];
+        $turns = $this->model->getTurnsById($id_turno);
+        $this->view->response($turns, 200);
+    }
+
     //esta función, "createTurnBySecretary()", crea un turno en la base de datos segun los datos enviados por el form
     //sin retorno
 
