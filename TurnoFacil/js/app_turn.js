@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
       });
     });
   } catch (error) { }
-
+  
   let form = document.getElementById("form_agregar_turno");
   if (form) {
+    //si el formulario se dispara se ejecuta la funcion createTurn
     form.addEventListener("submit", function (e) {
-      e.preventDefault()
       createTurn(form)
     })
   }
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 async function createTurn(form) {
+  //guardo los datos del formulario
   let data = new FormData(form);
   let turn = {
     id_medico: data.get("medico"),
@@ -44,8 +45,8 @@ async function createTurn(form) {
     fecha_inicio: data.get("turnBeginning"),
     fecha_fin: data.get("turnEnd")
   };
-  console.log(turn)
   try {
+    //envio una peticion a la API para crear los turnos con los datos del formulario
     await fetch('api/createTurnBySecretary/', {
       method: "POST",
       headers: {
