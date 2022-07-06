@@ -36,6 +36,12 @@ class ApiTurnController
         $this->view->response($turns, 200);
     }
 
+    public function getTurnsById($params = null){
+        $id_turno = $params[':ID_TURNO'];
+        $turns = $this->model->getTurnsById($id_turno);
+        $this->view->response($turns, 200);
+    }
+
     public function createTurnBySecretary()
     {
         date_default_timezone_set('America/Argentina/Buenos_Aires');

@@ -82,6 +82,7 @@ async function GetConfirmTurn(id_turn) {
   try {
     //consulta la base de datos para obtener los datos del turno confrimado
     let recibido = await fetch('api/turnoConfirmado/' + id_turn);
+    console.log(recibido);
     let json = await recibido.json();
     //llamo a un frmulario auxiliar
     //este permite que se active una ruta del router que cambia la pantalla

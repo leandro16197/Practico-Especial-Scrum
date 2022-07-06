@@ -35,6 +35,13 @@ $router->addRoute(
     'ApiTurnController',
     'createTurnBySecretary'
 );
+
+$router->addRoute(
+    'turnoConfirmado/:ID_TURNO',
+    'GET',
+    'ApiTurnController',
+    'getTurnsById'
+);
 // rutea
 $resource = $_GET['resource'];
 $method = $_SERVER['REQUEST_METHOD'];
