@@ -13,6 +13,9 @@ class TurnosView
         $smarty->assign('titulo', "Login");
         $smarty->display('Template/login.tpl');
     }
+    //turnos($turnos,$medicos)
+    //esta funcion recibe una lista de turnos y medicos 
+    //carga el template con los turnos venideros de la Base de Datos
     function turnos($turnos, $medicos)
     {
         $smarty = new Smarty();
