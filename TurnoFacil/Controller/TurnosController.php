@@ -63,6 +63,17 @@ class TurnosController
     $this->view->turnos($Turno, $Medico);
   }
 
+  /*Esta funcion 'deleteTurn($id)' se encarga de realizar dos tareas.
+    carga la pantalla de la secretaria con los turnos de los medicos con los que trabaja
+    el id (identificador) del turno llega por la url del navegador y lo tomamos por parametro,
+    luego se desglosa los datos necesarios para enviar el e-mail (nombre del profesional,
+    nombre y apellido del paciente, casilla de correo del paciente).
+    Por ultimo se arma la estructura del mail con la informacion necesaria para que el Mail Server
+    funcione y se ejecuta la funcion mail() para mandar el correo electronico.
+    Luego se ejecuta la funcion deleteTurn($id) del model que va a borrar el turno de la base de datos
+    y por ultimo, se refresca la pagina con los datos actualizados.
+  */
+
   function deleteTurn($id)
   {
     $turno = $this->model->getTurnsById($id);
