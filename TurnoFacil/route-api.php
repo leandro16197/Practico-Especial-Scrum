@@ -29,6 +29,8 @@ $router->addRoute(
     'ApiTurnController',
     'confirmTurn'
 );
+
+//Agrego una ruta para agregar los turnos disponibles a travez de la API
 $router->addRoute(
     'createTurnBySecretary',
     'POST',
